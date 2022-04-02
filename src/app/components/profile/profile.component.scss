@@ -1,0 +1,74 @@
+@import "../global-style/global-style";
+
+.user-content{
+  padding: 100px 0 0 0;
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  color: $white;
+  text-align: left;
+}
+
+.content div{
+  padding: 10px 0;
+}
+
+.block-cars-liked{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.button-profile{
+  margin: 0;
+  text-align: center;
+  button{
+    @media(max-width: 600px) {
+      padding: 10px;
+      font-size: 10px;
+    }
+  }
+}
+
+.del-button{
+  font-size: 8px;
+  @media (max-width: 800px) {
+    margin-top: calc(10% - 14px);
+  }
+}
+
+h1{
+  text-align: center;
+  text-transform: uppercase;
+  @media (max-width: 600px) {
+    font-size: calc(18px + (20 - 18) * (100vw - 320px) / (1200 - 320));
+  }
+}
+
+img{
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  border-radius: 2px;
+}
+
+li{
+  list-style: none;
+}
+
+b{
+  text-transform: uppercase;
+  color: $red;
+}
+
+p{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.button-show-like-cars{
+  text-align: center;
+}

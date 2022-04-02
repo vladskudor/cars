@@ -1,0 +1,107 @@
+@import "../global-style/global-style";
+
+*{
+  box-sizing: border-box;
+}
+.content{
+  padding-top: calc(50vh - 250px);
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+  @media (max-width: 510px) {
+    width: 100%;
+  }
+  @media (max-height: 700px) {
+    width: 100%;
+    padding-top: calc(70vh - 250px);
+  }
+  p{
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    @media (max-width: 1200px) {
+      font-size: calc(20px + (40 - 20) * (100vw - 320px) / (1200 - 320));
+    }
+  }
+
+  input{
+    opacity: .8;
+    font-size: 16px;
+    border-radius: $border-radius;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 1200px) {
+      width: 50%;
+      margin: 5px auto;
+      padding: calc(5px + (20 - 5) * (100vw - 320px) / (1200 - 320));
+    }
+  }
+}
+
+.header{
+  color: $white;
+  //width: 500px;
+  @media (max-width: 510px) {
+    width: auto;
+  }
+}
+
+.login-button{
+  padding: 30px;
+  text-align: center;
+  button{
+    @media (max-width: 600px) {
+      padding: 10px;
+      font-size: 10px;
+    }
+  }
+}
+
+.invalid-form{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 0;
+  color: $red;
+  font-size: 20px;
+}
+
+.show-password-but{
+  float: right;
+  cursor: pointer;
+  color: $red;
+  &:hover svg{
+    color: $white;
+    transition: .5s;
+  }
+}
+
+.hide-password-but{
+  float: right;
+  cursor: pointer;
+  color: $red;
+  &:hover svg{
+    color: $white;
+    transition: .5s;
+  }
+}
+
+.block-menu-button{
+  display: flex;
+  @media (max-width: 320px) {
+   display: block;
+  }
+}
+
+#button-log-auth{
+  margin: 3px;
+  @media (max-width: 600px) {
+    padding: 10px 5px;
+    font-size: 10px;
+  }
+}

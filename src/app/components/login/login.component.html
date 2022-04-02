@@ -1,0 +1,46 @@
+<app-menu>
+  <div class="block-menu-button" *ngIf="!svc.user">
+    <div>
+      <button id="button-log-auth" (click)="router.navigate(['/auth'])">
+        signup
+      </button>
+    </div>
+    <div>
+      <button id="button-log-auth" (click)="router.navigate(['/login'])">
+        log in
+      </button>
+    </div>
+  </div>
+</app-menu>
+
+<div class="content">
+  <div class="header">
+    <p>log in</p>
+  </div>
+  <div class="content-form">
+    <div>
+      <div>
+        <div>
+          <input type="email" [formControl]="svc.formControlLogin" id="login" placeholder="Email" required [ngStyle]="{border: svc.formControlLogin.invalid && svc.login.length > 0 ? '2px solid red' : 'none'}">
+        </div>
+        <div class="invalid-form" *ngIf="svc.formControlLogin.invalid && svc.login.length > 0">
+          Invalid email
+        </div>
+      </div>
+      <div>
+        <div>
+          <input #password [formControl]="svc.formControlPassword" type="password" id="password" placeholder="Password" required [ngStyle]="{border: svc.formControlPassword.invalid && svc.password.length > 0 ? '2px solid red' : 'none'}">
+        </div>
+        <div class="invalid-form" *ngIf="svc.formControlPassword.invalid && svc.password.length > 0">
+          Invalid password
+        </div>
+      </div>
+      <div class="login-button">
+        <button (click)="svc.sendlogData()">
+          log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

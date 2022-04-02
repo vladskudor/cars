@@ -1,0 +1,72 @@
+<app-menu></app-menu>
+
+<div class="nav-to-main">
+  <button (click)="svc.navigateToMainContent()">
+    back
+  </button>
+</div>
+
+<div class="content-compare">
+  <div>
+    <h1>compare</h1>
+  </div>
+
+  <div class="compare-block">
+    <div class="car1">
+      <div class="car1-data" *ngFor="let car of car1">
+        <div class="car1-name">
+          <img src="{{car.logo}}" alt="">
+        </div>
+        <div class="car1-model">
+          <b>model - </b><em>{{car.model}}</em>
+        </div>
+        <div class="car1-gear">
+          <b>gear - </b><em>{{car.gear}}</em>
+        </div>
+        <div class="car1-motor"
+             [ngStyle]="{borderRight: carMotor1 > carMotor2 ? '7px solid green' : '3px solid red' , borderBottom: carMotor1 > carMotor2 ? '7px solid green' : '3px solid red'}">
+          <b>motor - </b><em>{{car.motor}}</em>
+        </div>
+        <div class="car1-acceleration"
+             [ngStyle]="{borderRight: carAcceleration1 < carAcceleration2 ? '7px solid green' : '3px solid red' , borderBottom: carAcceleration1 < carAcceleration2 ? '7px solid green' : '3px solid red'}">
+          <b>acceleration - </b><em>{{car.acceleration}}</em>
+        </div>
+        <div class="car1-horsepower"
+             [ngStyle]="{borderRight: carHorsePower1 > carHorsePower2 ? '7px solid green' : '3px solid red' , borderBottom: carHorsePower1 > carHorsePower2 ? '7px solid green' : '3px solid red'}">
+          <b>horse-power - </b><em>{{car.horsePower}}</em>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="car2">
+      <div class="car2-data" *ngFor="let car of car2">
+        <div class="car2-name">
+          <img src="{{car.logo}}" alt="">
+        </div>
+        <div class="car2-model">
+          <b>model - </b><em>{{car.model}}</em>
+        </div>
+        <div class="car2-gear">
+          <b>gear - </b><em>{{car.gear}}</em>
+        </div>
+        <div #motor class="car2-motor"
+             [ngStyle]="{borderRight: carMotor2 > carMotor1 ? '7px solid green' : '3px solid red' , borderBottom: carMotor2 > carMotor1 ? '7px solid green' : '3px solid red'}">
+          <b>motor - </b><em>{{car.motor}}</em>
+        </div>
+        <div class="car2-acceleration"
+             [ngStyle]="{borderRight: carAcceleration2 < carAcceleration1 ? '7px solid green' : '3px solid red' , borderBottom: carAcceleration2 < carAcceleration1 ? '7px solid green' : '3px solid red'}">
+          <b>acceleration - </b><em>{{car.acceleration}}</em>
+        </div>
+        <div class="car2-horsepower"
+             [ngStyle]="{borderRight: carHorsePower2 > carHorsePower1 ? '7px solid green' : '3px solid red' , borderBottom: carHorsePower2 > carHorsePower1 ? '7px solid green' : '3px solid red'}">
+          <b>horse-power - </b><em>{{car.horsePower}}</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="svc.playGame()">test drive</button>
+  </div>
+</div>

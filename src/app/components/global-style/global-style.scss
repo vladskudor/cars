@@ -1,0 +1,46 @@
+$border-radius: 10px;
+$white: #fff;
+$black: #000;
+$red: #f00;
+
+button{
+  opacity: .7;
+  border-radius: $border-radius;
+  background: $white;
+  color: $black;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  @media (max-width: 800px) {
+    padding: calc(4px + (10 - 4) * (100vw - 320px) / (1200 - 320));
+    font-size: calc(6px + (14 - 6) * (100vw - 320px) / (1200 - 320));
+  }
+  &:hover{
+    border: 2px solid red;
+    transition: .3s;
+    background: $black;
+    color: $white;
+  }
+}
+
+input{
+  color: $white;
+  background: $black;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+input:invalid {
+  animation: shake 300ms;
+}
+
+@keyframes shake {
+  25% { transform: translateX(10px); background: $red}
+  50% { transform: translateX(-10px); background: $red}
+  75% { transform: translateX(10px); background: $red}
+}

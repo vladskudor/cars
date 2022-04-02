@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+
+<div class="content-game">
+  <div class="button-test-drive">
+    <button (click)="moveCars(car1 , car2 , road , red , green)">start</button>
+    <button (click)="restart()">restart</button>
+    <button (click)="svc.navigateToMainContent()">exit</button>
+  </div>
+  <div class="light">
+    <div class="block-light">
+      <div class="light-red" #red>
+
+      </div>
+      <div class="light-green" #green>
+
+      </div>
+    </div>
+  </div>
+  <div class="road" #road>
+    <div class="car-one">
+      <div class="hint">
+        <b class="car1-block-b">{{carOne}}</b> press <button (click)="moveCar1()">forward</button> or enter
+      </div>
+      <div class="car1">
+        <img #car1 src="{{carImg1}}"/>
+      </div>
+    </div>
+
+    <div class="markup">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="car-two">
+      <div class="hint">
+        <b class="car2-block-b">{{carTwo}}</b> press <button (click)="moveCar2()">forward</button> or space
+      </div>
+      <div class="car2">
+        <img #car2 src="{{carImg2}}"/>
+      </div>
+    </div>
+  </div>
+</div>
