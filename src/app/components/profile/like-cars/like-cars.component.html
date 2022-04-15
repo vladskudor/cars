@@ -1,0 +1,23 @@
+<div class="cars-content-liked">
+  <div>
+    <h2>{{content | uppercase}}</h2>
+  </div>
+
+  <ng-template #carsLiked let-car="name" let-index>
+    <div class="block-cars-liked">
+      <p>
+        <b>{{index + 1}}.</b>
+        <img src="{{car.logo}}" />
+        {{car.mark}} {{car.model.name}}
+      </p>
+      <p>
+        <button class="del-button" (click)="deleteCarLike(car)">
+          delete
+        </button>
+      </p>
+    </div>
+  </ng-template>
+  <div *ngFor="let car of svc.user.likeCars;let i = index">
+    <ng-container *ngTemplateOutlet="template || carsLiked; context: {name: car , $implicit: i}"></ng-container>
+  </div>
+</div>

@@ -1,15 +1,16 @@
 @import "../global-style/global-style";
 
 .content-compare{
-  padding: 80px 0;
+  padding: 100px 0;
   text-align: center;
   color: $white;
   text-transform: uppercase;
 }
 
 .compare-block{
-  //height: 60vh;
+  height: 60vh;
   display: flex;
+  align-items: center;
   justify-content: space-around;
   b{
     color: $red;
@@ -84,7 +85,10 @@ p{
 }
 
 .nav-to-main{
-  padding: 10px;
+  position: absolute;
+  left: 0.5%;
+  top: 17%;
+  //padding: 120px 0 0 0;
   button{
     @media (max-width: 600px) {
       padding: 10px;

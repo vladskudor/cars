@@ -3,7 +3,6 @@ import {FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {NavigationEnd, Router , Scroll} from '@angular/router';
 import {LogoServiceService} from './logo-service.service';
-import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

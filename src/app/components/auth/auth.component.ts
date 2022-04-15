@@ -86,20 +86,21 @@ export class AuthComponent implements OnInit {
   public products = [
     {
       id: 1,
-      imgUrl: "",
-      imgBase64Data: ""
+      imgUrl: '',
+      imgBase64Data: ''
     },
   ];
 
   public onFileUpdate(event, index): void{
     this.imgIcon = true;
     const files = event.target.files;
-    if (files.length === 0) return;
-
+    if (files.length === 0) {
+      return;
+    }
     const reader = new FileReader();
 
     reader.readAsDataURL(files[0]);
-    reader.onload = event => {
+    reader.onload = (event) => {
       this.products[index].imgBase64Data = reader.result as string;
       this.img = this.products;
       console.log(this.img);

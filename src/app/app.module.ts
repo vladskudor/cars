@@ -16,6 +16,7 @@ import { DirectiveDirective } from './components/directive/directive.directive';
 import { CompareCarsComponent } from './components/compare-cars/compare-cars.component';
 import { GameComponent } from './components/game/game.component';
 import { ImageDirective } from './components/directive/image.directive';
+import { LikeCarsComponent } from './components/profile/like-cars/like-cars.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ImageDirective } from './components/directive/image.directive';
     DirectiveDirective,
     CompareCarsComponent,
     GameComponent,
-    ImageDirective
+    ImageDirective,
+    LikeCarsComponent
   ],
     imports: [
         Router,

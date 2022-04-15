@@ -1,0 +1,36 @@
+@import "src/app/components/global-style/global-style.scss";
+
+h2{
+  text-align: center;
+}
+
+.cars-content-liked{
+  display: block;
+  color: $white;
+  text-align: left;
+}
+
+.content div{
+  padding: 10px 0;
+}
+
+
+.block-cars-liked{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.del-button{
+  font-size: 8px;
+  @media (max-width: 800px) {
+    margin-top: calc(10% - 14px);
+  }
+}
+
+img{
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  border-radius: 2px;
+}

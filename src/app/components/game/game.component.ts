@@ -22,25 +22,29 @@ export class GameComponent implements OnInit {
 
   public testCarDrive1: any;
   public testCarDrive2: any;
-
   public road: any;
   public lightRed: any;
   public lightGreen: any;
-
   public start: boolean = false;
-
   public winner: boolean = false;
-
+  public objectCarOne: any;
+  public objectCarTwo: any;
   constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager) { }
 
   ngOnInit(): void {
     this.moveCarComputer();
     this.getImage();
+    console.log(this.objectCarOne);
+    console.log(this.objectCarTwo);
   }
 
   public moveCarComputer(): void{
     const carTest1 = JSON.parse(localStorage.getItem('carTest1'));
+    this.objectCarOne = carTest1[0].logo;
+
     const carTest2 = JSON.parse(localStorage.getItem('carTest2'));
+    this.objectCarTwo = carTest2[0].logo;
+
     this.carOne = carTest1[0].name;
     this.carTwo = carTest2[0].name;
 

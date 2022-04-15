@@ -1,4 +1,4 @@
-import {Component, OnInit, DoCheck, OnDestroy, TemplateRef , Input} from '@angular/core';
+import {Component, OnInit, DoCheck, OnDestroy} from '@angular/core';
 import {ServiceService} from '../service/service.service';
 import {LogoServiceService} from '../service/logo-service.service';
 import {Router} from '@angular/router';
@@ -14,9 +14,10 @@ export class ProfileComponent implements OnInit , DoCheck , OnDestroy {
   public currentImage: any;
 
   // currency: number = 210;
-  @Input() public template?: TemplateRef<{ $implicit: any }>;
+  public headerContent: string = 'liked the cars';
 
   constructor(public svc: ServiceService, public svcLogo: LogoServiceService, public router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -37,14 +38,14 @@ export class ProfileComponent implements OnInit , DoCheck , OnDestroy {
     this.svc.overflowHidden();
   }
 
-  public deleteCarLike(likeCar): void {
-    for (let delCar = 0; delCar < this.svc.user.likeCars.length; delCar++) {
-      if (likeCar.value === this.svc.user.likeCars[delCar].value) {
-        this.svc.user.likeCars.splice(delCar, 1);
-        localStorage.setItem('user', JSON.stringify(this.svc.user));
-      }
-    }
-  }
+  // public deleteCarLike(likeCar): void {
+  //   for (let delCar = 0; delCar < this.svc.user.likeCars.length; delCar++) {
+  //     if (likeCar.value === this.svc.user.likeCars[delCar].value) {
+  //       this.svc.user.likeCars.splice(delCar, 1);
+  //       localStorage.setItem('user', JSON.stringify(this.svc.user));
+  //     }
+  //   }
+  // }
 
   public carNameImg(): void {
     for (const i of this.svc.user.likeCars) {

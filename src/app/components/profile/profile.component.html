@@ -23,39 +23,8 @@
 <!--      <b>salary</b> {{currency | currency}}-->
 <!--      :'CAD'-->
 <!--    </div>-->
-
-    <div>
-      <h1 *ngIf="allLikeCar">Like cars of user</h1>
-    </div>
     <div *ngIf="allLikeCar">
-<!--      <ul *ngFor="let likeCar of svc.user.likeCars;let i = index">-->
-<!--        <li><b>{{i + 1}}</b>.-->
-<!--          <img src="{{likeCar.logo}}" width="20px" height="20px" alt="{{likeCar.mark}}" style="border-radius: 10px" />-->
-<!--          {{likeCar.mark}}-->
-<!--          {{likeCar.model.name}}-->
-<!--          <button class="del-button" (click)="deleteCarLike(likeCar)">-->
-<!--            delete-->
-<!--          </button>-->
-<!--        </li>-->
-<!--      </ul>-->
-      <ng-template #carsLiked let-car="name" let-index>
-        <div class="block-cars-liked">
-          <p>
-            <b>{{index + 1}}.</b>
-            <img src="{{car.logo}}" />
-            {{car.mark}} {{car.model.name}}
-          </p>
-          <p>
-            <button class="del-button" (click)="deleteCarLike(car)">
-              delete
-            </button>
-          </p>
-        </div>
-      </ng-template>
-
-      <div *ngFor="let car of svc.user.likeCars;let i = index">
-        <ng-container *ngTemplateOutlet="template || carsLiked; context: {name: car , $implicit: i}"></ng-container>
-      </div>
+      <app-like-cars [setContentHeader]="headerContent"></app-like-cars>
     </div>
     <div class="button-show-like-cars">
       <button style="font-size: 12px" (click)="allLikeCar = !allLikeCar; carNameImg()">
