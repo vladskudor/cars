@@ -259,22 +259,6 @@ export class ServiceService {
     });
   }
 
-  //Search car
-  public searchCar(carFoundName): void{
-    this.cars.filter((carFound) => {
-      if (carFoundName === carFound.name) {
-        this.selectedCar = carFound;
-        this.carCurrent = carFound;
-        this.curCar = carFound.value;
-      }
-    });
-    this.http.get(`https://api.auto.ria.com/categories/1/marks/${this.curCar}/models`).subscribe((model: any = []) => {
-      console.log(model);
-      this.model = model;
-    });
-  }
-  //
-
   public modelCar(model): void {
     window.scrollTo(0, 0);
     this.model.forEach((curModel) => {

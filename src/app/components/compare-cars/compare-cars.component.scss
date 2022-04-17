@@ -33,11 +33,23 @@
     text-align: center;
     height: 80px;
     img{
+      cursor: pointer;
       border-radius: 10px;
       width: 100px;
       @media (max-width: 700px) {
         width: 70px;
       }
+    }
+    span{
+      cursor: pointer;
+      font-size: 20px;
+      position: fixed;
+      left: 38%;
+      color: $red;
+      background: $black;
+      padding: 5px 10px;
+      border-radius: $border-radius;
+      opacity: .5;
     }
   }
   div{
@@ -60,7 +72,19 @@
     align-items: center;
     text-align: center;
     height: 80px;
+    span{
+      cursor: pointer;
+      font-size: 20px;
+      position: fixed;
+      right: 10%;
+      color: $red;
+      background: $black;
+      padding: 5px 10px;
+      border-radius: $border-radius;
+      opacity: .5;
+    }
     img{
+      cursor: pointer;
       border-radius: 10px;
       width: 100px;
       @media (max-width: 700px) {

@@ -15,6 +15,10 @@ export class MainComponent implements OnInit {
   public hint = false;
   public car1: any;
   public car2: any;
+
+  public searchCarName: any;
+  public searchCarModel: any;
+
   constructor(public svc: ServiceService , public svcLogo: LogoServiceService , private http: HttpClient , private router: Router) { }
 
   ngOnInit(): void {
