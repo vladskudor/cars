@@ -21,15 +21,16 @@
     <div>
       <div>
         <div>
-          <input type="email" [formControl]="svc.formControlLogin" id="login" placeholder="Email" required [ngStyle]="{border: svc.formControlLogin.invalid && svc.login.length > 0 ? '2px solid red' : 'none'}">
+          <input type="email" [formControl]="svc.formControlLogin" id="login" placeholder="Email" required [ngStyle]="{border: svc.formControlLogin.invalid && svc.login.length > 0 ? '2px solid red' : '2px solid #1a1a1a'}">
         </div>
         <div class="invalid-form" *ngIf="svc.formControlLogin.invalid && svc.login.length > 0">
           Invalid email
         </div>
       </div>
       <div>
-        <div>
-          <input #password [formControl]="svc.formControlPassword" type="password" id="password" placeholder="Password" required [ngStyle]="{border: svc.formControlPassword.invalid && svc.password.length > 0 ? '2px solid red' : 'none'}">
+        <div class="block-password">
+          <input [type]="passwordVisibility ? 'password' : 'text'" #password [formControl]="svc.formControlPassword" type="password" id="password" placeholder="Password" required [ngStyle]="{border: svc.formControlPassword.invalid && svc.password.length > 0 ? '2px solid red' : '2px solid #1a1a1a'}">
+          <button (click)="passwordVisibility = !passwordVisibility">(O)</button>
         </div>
         <div class="invalid-form" *ngIf="svc.formControlPassword.invalid && svc.password.length > 0">
           Invalid password

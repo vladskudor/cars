@@ -54,14 +54,17 @@
         </div>
       </div>
       <div>
-        <input type="text" placeholder="Password" [(ngModel)]="editedUser.password" [formControl]="svc.formControlPassword" />
+        <div class="block-password">
+          <input [type]="passwordVisibility ? 'password' : 'text'" placeholder="Password" [(ngModel)]="editedUser.password" [formControl]="svc.formControlPassword" />
+          <button (click)="passwordVisibility = !passwordVisibility">(O)</button>
+        </div>
         <div class="invalid-form" *ngIf="svc.formControlPassword.invalid && svc.password.length > 0">
           Invalid password
         </div>
       </div>
-      <div class="choose-img" *ngFor="let product of this.svc.products; let i = index">
-        <input [(ngModel)]="editedUser.img" type='file' #fileInput (change)="onFileUpdate($event, i)" />
-      </div>
+<!--      <div class="choose-img" *ngFor="let product of this.svc.products; let i = index">-->
+<!--        <input [(ngModel)]="editedUser.img" type='file' #fileInput (change)="onFileUpdate($event, i)" />-->
+<!--      </div>-->
 
       <div class="auth-button">
         <button (click)="saveUser();svc.authSent()">

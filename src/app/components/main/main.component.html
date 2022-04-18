@@ -96,7 +96,7 @@
         </div>
         <ul>
           <li *ngFor="let gears of svc.gear" (click)="svc.getGear(gears)">
-            {{gears.name}}
+            {{gears.name | uppercase}}
           </li>
         </ul>
       </div>

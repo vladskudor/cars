@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../service/service.service';
 import {LogoServiceService} from '../service/logo-service.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-main',
@@ -19,7 +18,8 @@ export class MainComponent implements OnInit {
   public searchCarName: any;
   public searchCarModel: any;
 
-  constructor(public svc: ServiceService , public svcLogo: LogoServiceService , private http: HttpClient , private router: Router) { }
+  constructor(public svc: ServiceService, public svcLogo: LogoServiceService, private http: HttpClient, private router: Router) {
+  }
 
   ngOnInit(): void {
     const user = localStorage.getItem('user');
@@ -29,10 +29,10 @@ export class MainComponent implements OnInit {
     }
 
     setTimeout(() => {
-      if (!this.svc.showCars){
+      if (!this.svc.showCars) {
         this.hint = true;
       }
-    } , 5000);
+    }, 5000);
 
     const car1 = localStorage.getItem('car1');
     const car2 = localStorage.getItem('car2');

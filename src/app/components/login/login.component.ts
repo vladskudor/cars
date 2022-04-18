@@ -8,6 +8,8 @@ import {ServiceService} from '../service/service.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  passwordVisibility: boolean = false;
+
   user: any;
   constructor(public svc: ServiceService , private router: Router) { }
 

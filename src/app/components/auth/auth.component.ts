@@ -20,6 +20,8 @@ export class AuthComponent implements OnInit {
   isNewRecord: boolean;
   imgIcon: boolean = false;
   img: any;
+  passwordVisibility: boolean = false;
+
   constructor(public svc: ServiceService , public router: Router, private serv: UserService) {
     this.users = new Array<User>();
   }
@@ -29,8 +31,6 @@ export class AuthComponent implements OnInit {
     this.svc.enterData();
     // this.svc.user = null;
   }
-
-
 
   private loadUsers(): void{
     this.serv.getUsers().subscribe((data: Array<User>) => {
