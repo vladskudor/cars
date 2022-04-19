@@ -23,7 +23,7 @@
 
   <div class="content-main">
     <div class="search-car-block" *ngIf="svc.showCars">
-      <input [ngStyle]="{borderRadius: !svc.selectedCar ? 10 + 'px' : ' 10px 0px 0px 10px '}" type="text" #carFoundName placeholder="mark" [(ngModel)]="searchCarName">
+      <input style="position:sticky;" [ngStyle]="{borderRadius: !svc.selectedCar ? 10 + 'px' : ' 10px 0px 0px 10px '}" type="text" #carFoundName placeholder="mark" [(ngModel)]="searchCarName">
       <input *ngIf="svc.selectedCar" type="text" #carFoundModel placeholder="model" [(ngModel)]="searchCarModel">
     </div>
     <div class="car-mark-model">

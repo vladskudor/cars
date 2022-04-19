@@ -4,9 +4,23 @@
   padding: 100px 0 0 0;
   display: flex;
   justify-content: center;
-  height: 60vh;
+  height: auto;
   color: $white;
   text-align: left;
+}
+
+.content{
+  width: 350px;
+  margin: 0 auto;
+  padding: 0 10%;
+  .block-info{
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 500px) {
+    width: auto;
+    padding: 0 5%;
+  }
 }
 
 .content div{

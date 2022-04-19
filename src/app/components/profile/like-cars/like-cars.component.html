@@ -4,20 +4,24 @@
   </div>
 
   <ng-template #carsLiked let-car="name" let-index>
-    <div class="block-cars-liked">
-      <p>
-        <b>{{index + 1}}.</b>
-        <img src="{{car.logo}}" />
-        {{car.mark}} {{car.model.name}}
-      </p>
-      <p>
-        <button class="del-button" (click)="deleteCarLike(car)">
-          delete
-        </button>
-      </p>
-    </div>
+      <div class="block-cars-liked">
+        <p>
+          <img *ngIf="car.logo" src="{{car.logo}}" />
+          <img *ngIf="!car.logo" src="./assets/images/car.png" />
+        </p>
+
+        <p>
+          <b style="color: red">{{index + 1}}. </b>{{car.mark}} {{car.model.name}}
+        </p>
+
+        <p>
+          <button class="del-button" (click)="deleteCarLike(car)">
+            delete
+          </button>
+        </p>
+      </div>
   </ng-template>
-  <div *ngFor="let car of svc.user.likeCars;let i = index">
+  <div style="border-bottom: 2px solid red" *ngFor="let car of svc.user.likeCars;let i = index">
     <ng-container *ngTemplateOutlet="template || carsLiked; context: {name: car , $implicit: i}"></ng-container>
   </div>
 </div>

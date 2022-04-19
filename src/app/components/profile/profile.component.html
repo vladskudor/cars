@@ -5,18 +5,18 @@
     <div>
       <h1>profile</h1>
     </div>
-    <div>
-      <b>id - </b>{{svc.user.id}}
+    <div class="block-info">
+      <b>id</b> <span>_{{svc.user.id}}</span>
     </div>
-    <div>
-      <b>login - </b>{{svc.user.email}}
+    <div class="block-info">
+      <b>login</b> <span>_{{svc.user.email}}</span>
     </div>
-    <div>
-      <b>password - </b>{{svc.user.password}}
+    <div class="block-info">
+      <b>password</b> <span>_{{svc.user.password}}</span>
     </div>
 
-    <div>
-      <b>Date:</b> {{svc.user.timeAuth | date: 'dd/MM/yyyy' | uppercase}}
+    <div class="block-info">
+      <b>Date:</b>  <span>{{svc.user.timeAuth | date: 'dd/MM/yyyy' | uppercase}}</span>
     </div>
 
 <!--    <div>-->
