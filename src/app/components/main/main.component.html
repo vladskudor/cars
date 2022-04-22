@@ -113,9 +113,10 @@
           </div>
           <div class="winners" *ngFor="let rec of records">
             <div class="block-list-img">
-              <img src="{{rec.winner[0].logo}}" alt="" width="20px" height="20px">
+              <img *ngIf="rec.winner[0].logo" src="{{rec.winner[0].logo}}" alt="">
+              <img *ngIf="!rec.winner[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.winner[0].name | uppercase}}</p>
+            <p>{{rec.winner[0].name | uppercase}} {{rec.winner[0].model | uppercase}}</p>
           </div>
         </div>
 
@@ -129,9 +130,10 @@
           </div>
           <div class="losers" *ngFor="let rec of records">
             <div class="block-list-img">
-              <img src="{{rec.loser[0].logo}}" alt="" width="20px" height="20px">
+              <img *ngIf="rec.loser[0].logo" src="{{rec.loser[0].logo}}" alt="">
+              <img *ngIf="!rec.loser[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.loser[0].name | uppercase}}</p>
+            <p>{{rec.loser[0].name | uppercase}} {{rec.loser[0].model| uppercase}}</p>
           </div>
         </div>
       </div>

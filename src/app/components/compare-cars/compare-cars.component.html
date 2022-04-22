@@ -15,7 +15,8 @@
     <div class="car1">
       <div class="car1-data" *ngFor="let car of car1">
         <div class="car1-name">
-          <img #img1 (click)="openImg1(img1)" src="{{car.logo}}" alt="">
+          <img *ngIf="car.logo" #img1 (click)="openImg1(img1)" src="{{car.logo}}" alt="">
+          <img *ngIf="!car.logo" #img1 (click)="openImg1(img1)" src="./assets/images/car.png" alt="">
           <span (click)="closeImg1()" style="color: red" *ngIf="activeImg1">
             x
           </span>
@@ -45,7 +46,8 @@
     <div class="car2">
       <div class="car2-data" *ngFor="let car of car2">
         <div class="car2-name">
-          <img #img2 (click)="openImg2(img2)" src="{{car.logo}}" alt="">
+          <img *ngIf="car.logo" #img2 (click)="openImg2(img2)" src="{{car.logo}}" alt="">
+          <img *ngIf="!car.logo" #img2 (click)="openImg2(img2)" src="./assets/images/car.png" alt="">
           <span (click)="closeImg2()" style="color: red" *ngIf="activeImg2">
             x
           </span>
