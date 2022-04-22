@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   {path: 'auth' , component: AuthComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'profile' , component: ProfileComponent , canActivate: [GuardGuard]},
-  {path: 'game' , component: GameComponent , canActivate: [GuardGuard]},
+  {path: 'game/:carTest1/:carTest2' , component: GameComponent , canActivate: [GuardGuard]},
   {path: 'edit/:login/:password' , component: EditUserComponent , canActivate: [GuardGuard]},
   {path: 'current-car' , component: CurrentCarComponent , canActivate: [GuardGuard]},
   {path: 'compare-cars' , component: CompareCarsComponent , canActivate: [GuardGuard]},

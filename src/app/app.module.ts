@@ -18,6 +18,7 @@ import { GameComponent } from './components/game/game.component';
 import { ImageDirective } from './components/directive/image.directive';
 import { LikeCarsComponent } from './components/profile/like-cars/like-cars.component';
 import {SearchPipe} from './components/pipe';
+import {Interseptor} from './components/interseptors/interseptors.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,13 @@ import {SearchPipe} from './components/pipe';
         ReactiveFormsModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interseptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

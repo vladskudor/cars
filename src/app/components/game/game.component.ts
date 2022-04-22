@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../service/service.service';
 import {LogoServiceService} from '../service/logo-service.service';
 import {EventManager} from '@angular/platform-browser';
+import {Router , ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-game',
@@ -9,6 +11,11 @@ import {EventManager} from '@angular/platform-browser';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+  public subscription: Subscription;
+  public paramCarOne: any;
+  public paramCarTwo: any;
+
+
   public carOne: any;
   public carTwo: any;
   public carImg1: any;
@@ -17,8 +24,6 @@ export class GameComponent implements OnInit {
 
   public speed1: any = 0;
   public speed2: any = 0;
-  public power1: any = 0;
-  public power2: any = 0;
 
   public testCarDrive1: any;
   public testCarDrive2: any;
@@ -29,9 +34,14 @@ export class GameComponent implements OnInit {
   public winner: boolean = false;
   public objectCarOne: any;
   public objectCarTwo: any;
-  constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager) { }
+  constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager, private activate: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.subscription = this.activate.params.subscribe((param) => {
+      this.paramCarOne = JSON.parse(param['carTest1']);
+      this.paramCarTwo = JSON.parse(param['carTest2']);
+    });
+
     this.moveCarComputer();
     this.getImage();
     console.log(this.objectCarOne);
@@ -49,11 +59,11 @@ export class GameComponent implements OnInit {
     this.carTwo = carTest2[0].name;
 
     this.eventManager.addGlobalEventListener('window' , 'keyup.enter' , () => {
-      if (this.testCarDrive1.style.marginLeft === '90vw'){
+      if (this.testCarDrive1.style.marginLeft > 90 + 'vw'){
         alert('Winnner: ' + this.carOne);
         this.restart();
       }
-      this.speed1 = this.speed1 + 2;
+      this.speed1 = this.speed1 + this.paramCarOne[0].acceleration;
       this.testCarDrive1.style.marginLeft = this.speed1 + 'vw';
     });
     this.eventManager.addGlobalEventListener('window' , 'keyup.space' , () => {
@@ -61,7 +71,7 @@ export class GameComponent implements OnInit {
         alert('Winnner: ' + this.carTwo);
         this.restart();
       }
-      this.speed2 = this.speed2 + 2;
+      this.speed2 = this.speed2 + this.paramCarTwo[0].acceleration;
       this.testCarDrive2.style.marginLeft =  + this.speed2 + 'vw';
     });
   }

@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {NavigationEnd, Router , Scroll} from '@angular/router';
+import {NavigationEnd, Router , Scroll , ActivatedRoute} from '@angular/router';
 import {LogoServiceService} from './logo-service.service';
 
 @Injectable({
@@ -51,6 +51,7 @@ export class ServiceService {
 
   constructor(
     private router: Router,
+    private actRoute: ActivatedRoute,
     private http: HttpClient,
     public svcLogo: LogoServiceService
   ) {
@@ -343,8 +344,8 @@ export class ServiceService {
 
     this.users.forEach((user) => {
       if (user.email === this.user.email && user.password === this.user.password) {
+        this.user = user;
         this.user.likeCars.push(likeCarUser);
-        // user.likeCars.push(likeCarUser);
         localStorage.setItem('user', JSON.stringify(this.user));
         localStorage.setItem('users', JSON.stringify(this.users));
       }
@@ -402,6 +403,6 @@ export class ServiceService {
     const carTest2 = localStorage.getItem('car2');
     localStorage.setItem('carTest1' , carTest1);
     localStorage.setItem('carTest2' , carTest2);
-    this.router.navigate(['/game']);
+    this.router.navigate(['/game' , `${JSON.stringify(this.car1)}` , `${JSON.stringify(this.car2)}`]);
   }
 }

@@ -4,6 +4,7 @@ import {LogoServiceService} from '../service/logo-service.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
