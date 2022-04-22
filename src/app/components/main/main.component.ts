@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit , DoCheck} from '@angular/core';
 import {ServiceService} from '../service/service.service';
 import {LogoServiceService} from '../service/logo-service.service';
 import {HttpClient} from '@angular/common/http';
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit , DoCheck{
   public logotype: any;
   public hint = false;
   public car1: any;
@@ -52,6 +52,12 @@ export class MainComponent implements OnInit {
 
     if (car1 && car2) {
       this.router.navigate(['/compare-cars']);
+    }
+  }
+
+  ngDoCheck(): void{
+    if (this.records) {
+      this.svc.overflowAuto();
     }
   }
 }

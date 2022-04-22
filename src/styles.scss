@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background: #000;
   background: url('bacground-main.jpg');
+  //background: url('bacground-main.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: center;
@@ -9,7 +9,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Arial Black";
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 ::-webkit-scrollbar {

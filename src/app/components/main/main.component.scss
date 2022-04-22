@@ -1,7 +1,7 @@
 @import "../global-style/global-style";
 
 .block-content{
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 150px 0;
   //@media (max-height: 768px) {
   //  //height: 100vh;
@@ -295,9 +295,28 @@ li{
 .block-races{
   position: relative;
   p{
-    padding: 5px 0;
-    border-right: 3px solid $red;
-    border-radius: $border-radius;
+    margin: 2% 0;
+  }
+  .block-list-img{
+    display: flex;
+    justify-content: center;
+    img{
+      border-radius: $border-radius;
+      width: 25%;
+      height: 25%;
+    }
+  }
+  .block-winners{
+    text-align: center;
+    .winners{
+      padding: 2% 0;
+    }
+  }
+  .block-losers{
+    text-align: center;
+    .losers{
+      padding: 2% 0;
+    }
   }
 }
 

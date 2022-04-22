@@ -35,7 +35,6 @@ export class GameComponent implements OnInit {
   public objectCarOne: any;
   public objectCarTwo: any;
 
-  recordsContainer: any;
   constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager, private activate: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -63,8 +62,8 @@ export class GameComponent implements OnInit {
     this.eventManager.addGlobalEventListener('window' , 'keyup.enter' , () => {
       if (this.testCarDrive1.style.marginLeft > 90 + 'vw') {
         const record = {
-          winner: this.carOne,
-          loser: this.carTwo
+          winner: this.paramCarOne,
+          loser: this.paramCarTwo
         };
         let records = JSON.parse(localStorage.getItem('records'));
         if (!records) {
@@ -81,8 +80,8 @@ export class GameComponent implements OnInit {
     this.eventManager.addGlobalEventListener('window' , 'keyup.space' , () => {
       if (this.testCarDrive2.style.marginLeft  > 90 + 'vw'){
         const record = {
-          winner: this.carTwo,
-          loser: this.carOne
+          winner: this.paramCarTwo,
+          loser: this.paramCarOne
         };
         let records = JSON.parse(localStorage.getItem('records'));
         if (!records) {

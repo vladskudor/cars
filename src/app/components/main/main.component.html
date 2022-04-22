@@ -107,12 +107,15 @@
       </div>
 
       <div class="records-list">
-        <div>
+        <div class="block-winners">
           <div>
             <h2>winners</h2>
           </div>
-          <div *ngFor="let rec of records;let i = index">
-            <p><b>{{i+1}}.</b>{{rec.winner | uppercase}}</p>
+          <div class="winners" *ngFor="let rec of records">
+            <div class="block-list-img">
+              <img src="{{rec.winner[0].logo}}" alt="" width="20px" height="20px">
+            </div>
+            <p>{{rec.winner[0].name | uppercase}}</p>
           </div>
         </div>
 
@@ -120,12 +123,15 @@
           <h1>v<b style="color: #fff">s</b></h1>
         </div>
 
-        <div>
+        <div class="block-losers">
           <div>
             <h2>losers</h2>
           </div>
-          <div *ngFor="let rec of records;let i = index">
-            <p><b>{{i+1}}.</b>{{rec.loser | uppercase}}</p>
+          <div class="losers" *ngFor="let rec of records">
+            <div class="block-list-img">
+              <img src="{{rec.loser[0].logo}}" alt="" width="20px" height="20px">
+            </div>
+            <p>{{rec.loser[0].name | uppercase}}</p>
           </div>
         </div>
       </div>
