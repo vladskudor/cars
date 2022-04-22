@@ -55,6 +55,7 @@ export class ServiceService {
     private http: HttpClient,
     public svcLogo: LogoServiceService
   ) {
+
   }
 
   public enterDataMotor(): void {

@@ -19,12 +19,17 @@ export class MainComponent implements OnInit {
   public searchCarName: any;
   public searchCarModel: any;
 
+  public records: any;
+
   constructor(public svc: ServiceService, public svcLogo: LogoServiceService, private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
     const user = localStorage.getItem('user');
     const users = localStorage.getItem('users');
+    this.records = JSON.parse(localStorage.getItem('records'));
+
+    console.log(this.records);
     if (!user && !users) {
       document.location.reload();
     }

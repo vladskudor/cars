@@ -28,11 +28,34 @@ svg{
 }
 
 h1{
+  color: $red;
   margin: 0;
   text-transform: uppercase;
   text-align: center;
   @media (max-width: 600px) {
     font-size: calc(12px + (20 - 12) * (100vw - 320px) / (1200 - 320));
+  }
+}
+
+h2{
+  color: $red;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1200 - 320));
+  }
+}
+
+b{
+  color: $red;
+}
+
+p{
+  margin: 0;
+  text-transform: uppercase;
+  @media (max-width: 600px) {
+    font-size: calc(10px + (16 - 10) * (100vw - 320px) / (1200 - 320));
   }
 }
 
@@ -268,3 +291,28 @@ li{
     text-transform: uppercase;
   }
 }
+
+.block-races{
+  position: relative;
+  p{
+    padding: 5px 0;
+    border-right: 3px solid $red;
+    border-radius: $border-radius;
+  }
+}
+
+.block-against{
+  position: absolute;
+  top: 50%;
+}
+
+.block-records-header{
+
+}
+
+.records-list{
+  display: flex;
+  justify-content: space-around;
+}
+
+

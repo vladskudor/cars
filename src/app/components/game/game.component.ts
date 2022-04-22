@@ -34,6 +34,8 @@ export class GameComponent implements OnInit {
   public winner: boolean = false;
   public objectCarOne: any;
   public objectCarTwo: any;
+
+  recordsContainer: any;
   constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager, private activate: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -60,6 +62,16 @@ export class GameComponent implements OnInit {
 
     this.eventManager.addGlobalEventListener('window' , 'keyup.enter' , () => {
       if (this.testCarDrive1.style.marginLeft > 90 + 'vw'){
+        const record = {
+          winner: this.carOne,
+          loser: this.carTwo
+        };
+        let records = JSON.parse(localStorage.getItem('records'));
+        if (!records) {
+          records = [];
+        }
+        records.push(record);
+        localStorage.setItem('records' , JSON.stringify(records));
         alert('Winnner: ' + this.carOne);
         this.restart();
       }
@@ -67,7 +79,17 @@ export class GameComponent implements OnInit {
       this.testCarDrive1.style.marginLeft = this.speed1 + 'vw';
     });
     this.eventManager.addGlobalEventListener('window' , 'keyup.space' , () => {
-      if (this.testCarDrive2.style.marginLeft === '90vw'){
+      if (this.testCarDrive2.style.marginLeft  > 90 + 'vw'){
+        const record = {
+          winner: this.carTwo,
+          loser: this.carOne
+        };
+        let records = JSON.parse(localStorage.getItem('records'));
+        if (!records) {
+          records = [];
+        }
+        records.push(record);
+        localStorage.setItem('records' , JSON.stringify(records));
         alert('Winnner: ' + this.carTwo);
         this.restart();
       }

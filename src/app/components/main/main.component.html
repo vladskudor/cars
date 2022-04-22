@@ -3,7 +3,7 @@
 <div class="block-content" id="block-content">
   <div class="button-block">
     <button (click)="svc.showCars = !this.svc.showCars; hint = false; //carNameImg()">
-      cars
+      race
     </button>
     <div class="hint" *ngIf="hint">
       <
@@ -99,6 +99,35 @@
             {{gears.name | uppercase}}
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="block-races" *ngIf="!svc.showCars">
+      <div class="block-records-header">
+        <h1>races</h1>
+      </div>
+
+      <div class="records-list">
+        <div>
+          <div>
+            <h2>winners</h2>
+          </div>
+          <div *ngFor="let rec of records;let i = index">
+            <p><b>{{i+1}}.</b>{{rec.winner | uppercase}}</p>
+          </div>
+        </div>
+
+        <div class="block-against">
+          <h1>v<b style="color: #fff">s</b></h1>
+        </div>
+
+        <div>
+          <div>
+            <h2>losers</h2>
+          </div>
+          <div *ngFor="let rec of records;let i = index">
+            <p><b>{{i+1}}.</b>{{rec.loser | uppercase}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
