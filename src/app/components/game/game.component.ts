@@ -61,7 +61,7 @@ export class GameComponent implements OnInit {
     this.carTwo = carTest2[0].name;
 
     this.eventManager.addGlobalEventListener('window' , 'keyup.enter' , () => {
-      if (this.testCarDrive1.style.marginLeft > 90 + 'vw'){
+      if (this.testCarDrive1.style.marginLeft > 90 + 'vw') {
         const record = {
           winner: this.carOne,
           loser: this.carTwo
@@ -103,11 +103,21 @@ export class GameComponent implements OnInit {
     const carTest2 = JSON.parse(localStorage.getItem('carTest2'));
     this.carOne = carTest1[0].name;
     this.carTwo = carTest2[0].name;
-    if (this.testCarDrive2.style.marginLeft === '90vw'){
+    if (this.testCarDrive2.style.marginLeft > 90 + 'vw'){
+      const record = {
+        winner: this.carOne,
+        loser: this.carTwo
+      };
+      let records = JSON.parse(localStorage.getItem('records'));
+      if (!records) {
+        records = [];
+      }
+      records.push(record);
+      localStorage.setItem('records' , JSON.stringify(records));
       alert('Winnner: ' + this.carOne);
       this.restart();
     }
-    this.speed1 = this.speed1 + 2;
+    this.speed1 = this.speed1 + this.paramCarOne[0].acceleration;
     this.testCarDrive1.style.marginLeft = this.speed1 + 'vw';
   }
 
@@ -116,11 +126,21 @@ export class GameComponent implements OnInit {
     const carTest2 = JSON.parse(localStorage.getItem('carTest2'));
     this.carOne = carTest1[0].name;
     this.carTwo = carTest2[0].name;
-    if (this.testCarDrive2.style.marginLeft === '90vw'){
+    if (this.testCarDrive2.style.marginLeft > 90 + 'vw'){
+      const record = {
+        winner: this.carTwo,
+        loser: this.carOne
+      };
+      let records = JSON.parse(localStorage.getItem('records'));
+      if (!records) {
+        records = [];
+      }
+      records.push(record);
+      localStorage.setItem('records' , JSON.stringify(records));
       alert('Winnner: ' + this.carTwo);
       this.restart();
     }
-    this.speed2 = this.speed2 + 2;
+    this.speed2 = this.speed2 + this.paramCarTwo[0].acceleration;
     this.testCarDrive2.style.marginLeft = this.speed2 + 'vw';
   }
 
