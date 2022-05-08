@@ -20,6 +20,15 @@ import { LikeCarsComponent } from './components/profile/like-cars/like-cars.comp
 import {SearchPipe} from './components/pipe';
 import {Interseptor} from './components/interseptors/interseptors.service';
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBQG7tBskr4ALUbwW8kd_10-QBlojtV3xQ",
+  authDomain: "auto-5f690.firebaseapp.com",
+  projectId: "auto-5f690",
+  storageBucket: "auto-5f690.appspot.com",
+  messagingSenderId: "819572568344",
+  appId: "1:819572568344:web:ff2d30013e369c0e7f6e6d"
+};
+
 @NgModule({
   declarations: [
     AppComponent,

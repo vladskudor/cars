@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit , DoCheck{
+  public dataCarsName: any;
+  value: any;
   public logotype: any;
   public hint = false;
   public car1: any;
@@ -44,7 +46,6 @@ export class MainComponent implements OnInit , DoCheck{
     const car2 = localStorage.getItem('car2');
     if (car1) {
       this.car1 = JSON.parse(car1);
-      console.log(this.car1.name);
     }
     if (car2) {
       this.car2 = JSON.parse(car2);
@@ -59,5 +60,10 @@ export class MainComponent implements OnInit , DoCheck{
     if (this.records) {
       this.svc.overflowAuto();
     }
+  }
+
+  enter(value): void{
+    this.value = value;
+    this.value.style.textTransform = 'uppercase';
   }
 }

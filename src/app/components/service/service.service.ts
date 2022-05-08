@@ -9,6 +9,8 @@ import {LogoServiceService} from './logo-service.service';
 })
 
 export class ServiceService {
+  filterCar: any;
+
   public logotypes: any;
   public logo: any;
   public imgIcon: any = false;
@@ -352,6 +354,7 @@ export class ServiceService {
       }
     });
     console.log(this.user.likeCars);
+    this.getGearBoxes();
   }
 
   public overflowAuto(): void{

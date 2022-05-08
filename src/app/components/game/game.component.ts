@@ -102,7 +102,7 @@ export class GameComponent implements OnInit {
     const carTest2 = JSON.parse(localStorage.getItem('carTest2'));
     this.carOne = carTest1[0].name;
     this.carTwo = carTest2[0].name;
-    if (this.testCarDrive2.style.marginLeft > 90 + 'vw'){
+    if (this.testCarDrive1.style.marginLeft > 90 + 'vw'){
       const record = {
         winner: this.carOne,
         loser: this.carTwo

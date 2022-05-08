@@ -28,11 +28,11 @@ export class AppComponent implements OnInit , DoCheck{
   }
 
   ngDoCheck(): void{
-    // if (this.svc.showCars){
-    //   this.svc.overflowAuto();
-    // }
-    // if (!this.svc.showCars){
-    //   this.svc.overflowHidden();
-    // }
+    if (this.svc.showCars){
+      this.svc.overflowAuto();
+    }
+    if (!this.svc.showCars){
+      this.svc.overflowHidden();
+    }
   }
 }

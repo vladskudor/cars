@@ -5,6 +5,7 @@ import {ServiceService} from '../service/service.service';
 import {User} from '../user';
 import {UserService} from '../user.service';
 
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -25,6 +26,7 @@ export class AuthComponent implements OnInit {
   constructor(public svc: ServiceService , public router: Router, private serv: UserService) {
     this.users = new Array<User>();
   }
+
   ngOnInit(): void {
     this.loadUsers();
     this.addUser();
