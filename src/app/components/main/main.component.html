@@ -25,7 +25,7 @@
     <div class="search-car-block" *ngIf="svc.showCars">
       <input (click)="enter(inputValue)" style="position:sticky;" #inputValue [ngStyle]="{borderRadius: !svc.selectedCar ? 10 + 'px' : ' 10px 0px 0px 10px '}"
              type="text" #carFoundName placeholder="mark" [(ngModel)]="searchCarName">
-      <input *ngIf="svc.selectedCar" (click)="enter(inputValue)" #inputValue type="text" #carFoundModel placeholder="model" [(ngModel)]="searchCarModel">
+      <input *ngIf="svc.selectedCar" type="text" #carFoundModel placeholder="model" [(ngModel)]="searchCarModel">
     </div>
     <div class="car-mark-model">
       <div class="marks" *ngIf="svc.showCars">
@@ -41,14 +41,14 @@
         <ul *ngIf="searchCarName">
           <li *ngFor="let car of svc.cars | search: searchCarName" (click)="svc.currentCar(car)">
             <!--            <img src="{{car.logo}}" style="border-radius: 10px" width="20px" height="20px" alt="" />-->
-            {{car.name | uppercase}}
+            {{car.name}}
           </li>
         </ul>
 
         <ul *ngIf="!searchCarName">
           <li *ngFor="let car of svc.cars" (click)="svc.currentCar(car)">
             <!--            <img src="{{car.logo}}" style="border-radius: 10px" width="20px" height="20px" alt="" />-->
-            {{car.name | uppercase}}
+            {{car.name}}
           </li>
         </ul>
       </div>
@@ -65,7 +65,7 @@
 
         <ul *ngIf="!searchCarModel" class="model-ul">
           <li *ngFor="let model of svc.model">
-            <span (click)="svc.modelCar(model)">{{model.name| uppercase}}</span>
+            <span (click)="svc.modelCar(model)">{{model.name}}</span>
             <svg (click)="svc.likeCar(model)" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
                  fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
               <path
@@ -117,7 +117,7 @@
               <img *ngIf="rec.winner[0].logo" src="{{rec.winner[0].logo}}" alt="">
               <img *ngIf="!rec.winner[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.winner[0].name | uppercase}} {{rec.winner[0].model | uppercase}}</p>
+            <p>{{rec.winner[0].name}} {{rec.winner[0].model}}</p>
           </div>
         </div>
 
@@ -134,7 +134,7 @@
               <img *ngIf="rec.loser[0].logo" src="{{rec.loser[0].logo}}" alt="">
               <img *ngIf="!rec.loser[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.loser[0].name | uppercase}} {{rec.loser[0].model| uppercase}}</p>
+            <p>{{rec.loser[0].name}} {{rec.loser[0].model}}</p>
           </div>
         </div>
       </div>

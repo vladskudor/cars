@@ -64,6 +64,6 @@ export class MainComponent implements OnInit , DoCheck{
 
   enter(value): void{
     this.value = value;
-    this.value.style.textTransform = 'uppercase';
+    // this.value.style.textTransform = 'uppercase';
   }
 }
