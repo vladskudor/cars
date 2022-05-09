@@ -54,6 +54,10 @@ export class MainComponent implements OnInit , DoCheck{
     if (car1 && car2) {
       this.router.navigate(['/compare-cars']);
     }
+
+    setTimeout(() => {
+      this.svc.message = true;
+    } , 5000);
   }
 
   ngDoCheck(): void{

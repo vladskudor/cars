@@ -4,6 +4,7 @@ $black: #000;
 $red: #f00;
 
 button{
+  box-sizing: border-box;
   opacity: .7;
   border-radius: $border-radius;
   background: $white;
@@ -21,7 +22,7 @@ button{
     font-size: calc(6px + (14 - 6) * (100vw - 320px) / (1200 - 320));
   }
   &:hover{
-    border: 2px solid red;
+    outline: 2px solid red;
     transition: .3s;
     background: $black;
     color: $white;

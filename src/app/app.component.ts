@@ -14,6 +14,7 @@ export class AppComponent implements OnInit , DoCheck{
 
   }
   ngOnInit(): void{
+    // document.body.style.background = 'black';
     this.svc.getIp();
     this.svc.getUser();
     console.log(this.svc.user);

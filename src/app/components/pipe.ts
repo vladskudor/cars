@@ -9,5 +9,4 @@ export class SearchPipe implements PipeTransform{
       return car.name.includes(value);
     });
   }
-
 }

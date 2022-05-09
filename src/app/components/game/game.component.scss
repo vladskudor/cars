@@ -72,6 +72,9 @@ img{
   .car1{
     margin-left: 1%;
   }
+  @media (max-width: 500px) {
+    height: 25vh;
+  }
 }
 
 .markup{
@@ -102,6 +105,9 @@ img{
   }
   .car2{
     margin-left: 1%;
+  }
+  @media (max-width: 500px) {
+    height: 25vh;
   }
 }
 

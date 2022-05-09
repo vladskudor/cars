@@ -1,0 +1,63 @@
+@import "../global-style/global-style";
+
+:host-context(.message-block){
+  z-index: 1;
+  border: 2px solid $red;
+  border-radius: $border-radius;
+  padding: 1%;
+  background: $black;
+  color: $white;
+  position: fixed;
+  right: 1%;
+  bottom: 15%;
+  p{
+    margin: 0;
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
+  }
+  textarea{
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: $border-radius;
+    width: 95%;
+    background: $black;
+    color: $white;
+    font-family: Arial;
+    font-size: 16px;
+    @media (max-width: 600px) {
+      width: 90%;
+      font-size: 12px;
+    }
+  }
+  button{
+    font-size: 12px;
+    float: right;
+    @media (max-width: 600px) {
+      font-size: 10px;
+    }
+  }
+
+  p{
+    animation-name: text-change;
+    animation-iteration-count: infinite;
+    animation-delay: .5s;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+  }
+
+  @keyframes text-change{
+    from{
+      color: $white;
+    }
+    to{
+      color: $red;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 30%;
+  }
+}
+

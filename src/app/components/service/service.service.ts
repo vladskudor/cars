@@ -9,8 +9,7 @@ import {LogoServiceService} from './logo-service.service';
 })
 
 export class ServiceService {
-  filterCar: any;
-
+  public message: boolean = false;
   public logotypes: any;
   public logo: any;
   public imgIcon: any = false;

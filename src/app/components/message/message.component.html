@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <button (click)="svc.message = false">x</button>
+  </div>
+  <div>
+    <p>Hello!</p>
+    <p>If you like my program, write me something.</p>
+  </div>
+  <div>
+    <div>
+      <textarea name="message" id="" rows="5" [value]="'I am ' + svc.user.email"></textarea>
+    </div>
+    <div>
+      <button>send</button>
+    </div>
+  </div>
+</div>
