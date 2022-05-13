@@ -28,15 +28,15 @@
           <b>gear - </b><em>{{car.gear}}</em>
         </div>
         <div class="car1-motor"
-             [ngStyle]="{borderRight: carMotor1 > carMotor2 ? '7px solid green' : '3px solid red' , borderBottom: carMotor1 > carMotor2 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carMotor1 > carMotor2 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carMotor1 > carMotor2 ? '7px solid green' : '3px solid red'}">
           <b>motor - </b><em>{{car.motor}}</em>
         </div>
         <div class="car1-acceleration"
-             [ngStyle]="{borderRight: carAcceleration1 < carAcceleration2 ? '7px solid green' : '3px solid red' , borderBottom: carAcceleration1 < carAcceleration2 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carAcceleration1 < carAcceleration2 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carAcceleration1 < carAcceleration2 ? '7px solid green' : '3px solid red'}">
           <b>acceleration - </b><em>{{car.acceleration}}</em>
         </div>
         <div class="car1-horsepower"
-             [ngStyle]="{borderRight: carHorsePower1 > carHorsePower2 ? '7px solid green' : '3px solid red' , borderBottom: carHorsePower1 > carHorsePower2 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carHorsePower1 > carHorsePower2 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carHorsePower1 > carHorsePower2 ? '7px solid green' : '3px solid red'}">
           <b>horse-power - </b><em>{{car.horsePower}}</em>
         </div>
 
@@ -59,15 +59,15 @@
           <b>gear - </b><em>{{car.gear}}</em>
         </div>
         <div #motor class="car2-motor"
-             [ngStyle]="{borderRight: carMotor2 > carMotor1 ? '7px solid green' : '3px solid red' , borderBottom: carMotor2 > carMotor1 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carMotor2 > carMotor1 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carMotor2 > carMotor1 ? '7px solid green' : '3px solid red'}">
           <b>motor - </b><em>{{car.motor}}</em>
         </div>
         <div class="car2-acceleration"
-             [ngStyle]="{borderRight: carAcceleration2 < carAcceleration1 ? '7px solid green' : '3px solid red' , borderBottom: carAcceleration2 < carAcceleration1 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carAcceleration2 < carAcceleration1 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carAcceleration2 < carAcceleration1 ? '7px solid green' : '3px solid red'}">
           <b>acceleration - </b><em>{{car.acceleration}}</em>
         </div>
         <div class="car2-horsepower"
-             [ngStyle]="{borderRight: carHorsePower2 > carHorsePower1 ? '7px solid green' : '3px solid red' , borderBottom: carHorsePower2 > carHorsePower1 ? '7px solid green' : '3px solid red'}">
+             [ngStyle]="{outline: carHorsePower2 > carHorsePower1 ? '0 7px 0 0 solid green' : '0 3px 0 0 solid red' , borderBottom: carHorsePower2 > carHorsePower1 ? '7px solid green' : '3px solid red'}">
           <b>horse-power - </b><em>{{car.horsePower}}</em>
         </div>
       </div>

@@ -20,6 +20,7 @@ import { LikeCarsComponent } from './components/profile/like-cars/like-cars.comp
 import {SearchPipe} from './components/pipe';
 import {Interseptor} from './components/interseptors/interseptors.service';
 import { MessageComponent } from './components/message/message.component';
+import { AboutComponent } from './components/about/about.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQG7tBskr4ALUbwW8kd_10-QBlojtV3xQ",
@@ -46,7 +47,8 @@ const firebaseConfig = {
     ImageDirective,
     LikeCarsComponent,
     SearchPipe,
-    MessageComponent
+    MessageComponent,
+    AboutComponent
   ],
     imports: [
         Router,

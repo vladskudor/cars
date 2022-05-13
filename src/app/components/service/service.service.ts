@@ -197,7 +197,7 @@ export class ServiceService {
     localStorage.setItem('users', JSON.stringify(users));
     this.user = user;
     localStorage.setItem('user', JSON.stringify(this.user));
-    this.router.navigate(['/main', this.login, this.password]);
+    this.router.navigate(['/about', this.login, this.password]);
 
     // const cookie = document.cookie;
   }
