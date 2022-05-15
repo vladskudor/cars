@@ -17,152 +17,168 @@
   </header>
 
   <section class="section-instruction">
-    <div>
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 1</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>first you have to choose the first car</p>
-          </div>
-          <div>
-            <img src="assets/images/1.png" alt="">
-          </div>
-        </div>
+    <div class="slider">
+      <div class="block-slider-image">
+        <button (click)="imgMinus()">
+          <
+        </button>
+        <img src="{{image.path}}" alt="">
+        <button (click)="imgPlus()">
+          >
+        </button>
       </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 2</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>and choose a second car</p>
-          </div>
-          <div>
-            <img src="assets/images/2.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 3</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>now you need to specify the engine capacity, acceleration to 100 per second and horsepower</p>
-          </div>
-          <div>
-            <img src="assets/images/3.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 4</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>you can now view the characteristics of both cars and click the test button to test them</p>
-          </div>
-          <div>
-            <img src="assets/images/4.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 5</b>
-
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>to start the game press start and quickly press enter to drive the first car and space bar to drive the second car</p>
-          </div>
-          <div>
-            <img src="assets/images/5.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 6</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>then you can view the results on the main page</p>
-          </div>
-          <div>
-            <img src="assets/images/6.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 7</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>you can also view your profile</p>
-          </div>
-          <div>
-            <img src="assets/images/7.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 8</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>in the profile you can still see the cars you like</p>
-          </div>
-          <div>
-            <img src="assets/images/8.png" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="block-instruction">
-        <div>
-          <h2>
-            <b>step 9</b>
-          </h2>
-        </div>
-        <div class="description">
-          <div class="description-text">
-            <p>you can edit your profile on the edit page</p>
-          </div>
-          <div>
-            <img src="assets/images/9.png" alt="">
-          </div>
-        </div>
+      <div class="text-description">
+        <p>{{image.description}}</p>
       </div>
     </div>
+
+
+<!--    <div>-->
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 1</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>first you have to choose the first car</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/1.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 2</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>and choose a second car</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/2.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 3</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>now you need to specify the engine capacity, acceleration to 100 per second and horsepower</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/3.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 4</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>you can now view the characteristics of both cars and click the test button to test them</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/4.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 5</b>-->
+
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>to start the game press start and quickly press enter to drive the first car and space bar to drive the second car</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/5.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 6</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>then you can view the results on the main page</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/6.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 7</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>you can also view your profile</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/7.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 8</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>in the profile you can still see the cars you like</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/8.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="block-instruction">-->
+<!--        <div>-->
+<!--          <h2>-->
+<!--            <b>step 9</b>-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="description">-->
+<!--          <div class="description-text">-->
+<!--            <p>you can edit your profile on the edit page</p>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <img src="assets/images/9.png" alt="">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </section>
 
 </div>
