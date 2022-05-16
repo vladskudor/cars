@@ -7,8 +7,6 @@ import {ServiceService} from '../service/service.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit , DoCheck{
-  public media: any = window.matchMedia('(max-width:625px)');
-  public menu: boolean = true;
   public image: any;
   public number = 0;
   // public imagesCars: any = [
@@ -67,12 +65,6 @@ export class AboutComponent implements OnInit , DoCheck{
 
   ngOnInit(): void {
     // this.image = this.imagesCars[0];
-    if (!this.media.matches) {
-      this.menu = true;
-    }
-    if (this.media.matches) {
-      this.menu = false;
-    }
   }
 
   ngDoCheck(): void{

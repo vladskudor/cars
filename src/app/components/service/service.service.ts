@@ -364,11 +364,11 @@ export class ServiceService {
     document.body.style.overflow = 'hidden';
   }
 
-  public navigateToMainContent(): void {
+  public navigateTo(path): void {
     localStorage.removeItem('car');
     localStorage.removeItem('car1');
     localStorage.removeItem('car2');
-    this.router.navigate(['/main', this.user.email, this.user.password]);
+    this.router.navigate([`${path}`, this.user.email, this.user.password]);
   }
 
   public getIp(): void{
