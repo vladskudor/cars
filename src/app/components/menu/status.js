@@ -3,7 +3,6 @@ function online() {
 }
 
 function offline() {
-  var status = false;
   alert('offline')
 }
 
@@ -15,4 +14,5 @@ if (window.navigator.onLine){
 
 window.addEventListener("online" , online);
 window.addEventListener("offline" , offline);
+
 

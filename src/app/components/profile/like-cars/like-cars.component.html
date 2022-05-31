@@ -21,7 +21,7 @@
         </p>
       </div>
   </ng-template>
-  <div style="border-bottom: 2px solid red" *ngFor="let car of svc.user.likeCars;let i = index">
+  <div style="border-bottom: 2px solid red;background: black;opacity: .9" *ngFor="let car of svc.user.likeCars;let i = index">
     <ng-container *ngTemplateOutlet="template || carsLiked; context: {name: car , $implicit: i}"></ng-container>
   </div>
 </div>

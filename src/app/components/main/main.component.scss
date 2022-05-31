@@ -342,4 +342,17 @@ li{
   justify-content: space-around;
 }
 
-
+.button-scroll-up{
+  z-index: 1;
+  color: $white;
+  position: fixed;
+  top: 85vh;
+  right: 1%;
+  border-radius: 50px;
+  svg{
+    padding: 0;
+  }
+  &:hover{
+    outline: 2px solid $white;
+  }
+}

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GuardGuard implements CanActivate {
+  public animationBetweenTransitions: boolean = false;
   constructor(public router: Router) {
 
   }
@@ -17,7 +18,7 @@ export class GuardGuard implements CanActivate {
     if (!user && !users) {
       this.router.navigate(['/auth']);
     }
-    if (!user){
+    if (!user) {
       return;
     }
     return true;

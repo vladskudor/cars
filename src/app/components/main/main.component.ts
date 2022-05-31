@@ -70,4 +70,8 @@ export class MainComponent implements OnInit , DoCheck{
     this.value = value;
     // this.value.style.textTransform = 'uppercase';
   }
+
+  scrollUp(): void{
+    window.scrollTo(0 , 0);
+  }
 }
