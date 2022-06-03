@@ -20,6 +20,11 @@ nav{
   align-items: center;
   justify-content: end;
 }
+
+h1{
+  margin: 0;
+}
+
 a{
   cursor: pointer;
   border-radius: $border-radius;
@@ -185,6 +190,35 @@ a{
   &:hover img{
     transition: .5s;
     border: 2px solid $red;
+  }
+}
+
+.block-logo-and-title{
+  display: flex;
+  justify-content: space-around;
+  font-size: calc(8px + (10 - 8) * (100vw - 320px) / (1200 - 320));
+}
+
+.title{
+  height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  animation-name: colorChange;
+  animation-delay: 0.2s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 800ms;
+}
+
+@keyframes colorChange {
+  0%{
+    color: $white;
+  }
+  100%{
+    color: $red;
   }
 }
 

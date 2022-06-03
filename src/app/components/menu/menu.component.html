@@ -1,8 +1,14 @@
 <header class="menu">
   <div class="logo">
-    <div class="load">
-      <img (click)="svc.navigateTo('/about')" src="assets/images/wheel.png"/>
+    <div class="block-logo-and-title">
+      <div class="load">
+        <img (click)="svc.navigateTo('/about')" src="assets/images/wheel.png"/>
+      </div>
+      <div>
+        <h1 class="title">{{title}}</h1>
+      </div>
     </div>
+
     <div>
 <!--      <div id="theme" type="radio" (click)="svc.changeTheme()">-->
 <!--        1-->

@@ -64,8 +64,9 @@ export class AboutComponent implements OnInit , DoCheck{
   }
 
   ngOnInit(): void {
-    // this.image = this.imagesCars[0];
+
   }
+
 
   ngDoCheck(): void{
     if (this.imagesCars.length > 3) {
