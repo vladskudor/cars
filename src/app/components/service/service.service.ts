@@ -9,6 +9,7 @@ import {LogoServiceService} from './logo-service.service';
 })
 
 export class ServiceService {
+  public modal: boolean = false;
   public message: boolean = false;
   public logotypes: any;
   public logo: any;
@@ -190,7 +191,11 @@ export class ServiceService {
       ip: this.ip,
       img: this.img,
       likeCars: [],
-      timeAuth: this.date
+      timeAuth: this.date,
+      messages: [ {
+        name: 'Admin',
+        message: 'Hello!If you like my program, write me something.'
+      }]
     };
     // document.cookie = `${user.email}=${user.password}`;
     users.push(user);
@@ -198,7 +203,7 @@ export class ServiceService {
     this.user = user;
     localStorage.setItem('user', JSON.stringify(this.user));
     this.router.navigate(['/about', this.login, this.password]);
-
+    this.modal = true;
     // const cookie = document.cookie;
   }
 
@@ -208,6 +213,7 @@ export class ServiceService {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
         this.router.navigate(['/main', this.login, this.password]);
+        this.modal = true;
       }
       if (this.login !== user.email && this.password !== user.password) {
         this.error = true;

@@ -222,3 +222,47 @@ a{
   }
 }
 
+
+.modal-window{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 10px;
+  color: $red;
+  background: $black;
+  position: absolute;
+  z-index: 1;
+  @media (max-width: 500px) {
+    letter-spacing: 1px;
+  }
+}
+
+.text-modal-window{
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: $border-radius;
+  border: 2px solid $red;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+  img{
+    width: 100px;
+  }
+}
+
+.title-header{
+  width: 200px;
+  font-size: calc(6px + (10 - 6) * (100vw - 320px) / (1200 - 320));
+  @media (max-width: 500px) {
+    width: auto;
+  }
+}

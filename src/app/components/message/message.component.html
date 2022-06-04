@@ -3,15 +3,18 @@
     <button (click)="svc.message = false">x</button>
   </div>
   <div>
-    <p>Hello!</p>
-    <p>If you like my program, write me something.</p>
-  </div>
-  <div>
-    <div>
-      <textarea name="message" id="" rows="5" [value]="'I am ' + svc.user.email"></textarea>
+    <div class="block-messages">
+      <div class="messages" *ngFor="let message of svc.user.messages">
+        <p>
+          <b>{{message.name}}:</b> {{message.message}}
+        </p>
+      </div>
     </div>
     <div>
-      <button>send</button>
+      <textarea #messageValue name="message" id="" rows="5" [value]="'Hello admin!'"></textarea>
+    </div>
+    <div>
+      <button (click)="sendMessage(messageValue.value)">send</button>
     </div>
   </div>
 </div>

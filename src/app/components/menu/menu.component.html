@@ -58,3 +58,18 @@
     </div>
   </div>
 </header>
+
+
+<div *ngIf="svc.modal" class="modal-window">
+  <div class="text-modal-window">
+    <div>
+      <img src="./assets/images/renaultblack2.jpg" alt="">
+    </div>
+    <div class="title-header">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div>
+    <button (click)="svc.modal = !svc.modal">next</button>
+  </div>
+</div>

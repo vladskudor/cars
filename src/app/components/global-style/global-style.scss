@@ -4,6 +4,7 @@ $black: #000;
 $red: #f00;
 
 button{
+  outline: 2px solid $white;
   box-sizing: border-box;
   opacity: .7;
   border-radius: $border-radius;

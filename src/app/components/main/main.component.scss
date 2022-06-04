@@ -356,3 +356,14 @@ li{
     outline: 2px solid $white;
   }
 }
+
+.close-message{
+  cursor: pointer;
+  position: fixed;
+  top: 120px;
+  right: 1%;
+  color: $red;
+  svg:hover{
+    color: $white;
+  }
+}

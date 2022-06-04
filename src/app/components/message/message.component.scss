@@ -1,6 +1,7 @@
 @import "../global-style/global-style";
 
 :host-context(.message-block){
+  width: 20%;
   z-index: 1;
   border: 2px solid $red;
   border-radius: $border-radius;
@@ -38,26 +39,25 @@
     }
   }
 
+  b{
+    color: $red;
+  }
+
   p{
-    animation-name: text-change;
-    animation-iteration-count: infinite;
-    animation-delay: .5s;
-    animation-direction: alternate-reverse;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1s;
+    font-size: calc(8px + (14 - 8) * (100vw - 320px) / (1200 - 320));
+    border: 2px solid $red;
+    border-radius: $border-radius;
+    padding: 5px;
   }
 
-  @keyframes text-change{
-    from{
-      color: $white;
-    }
-    to{
-      color: $red;
-    }
-  }
-
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     width: 30%;
   }
+}
+
+.block-messages{
+  width: 100%;
+  height: 20vh;
+  overflow: scroll;
 }
 
