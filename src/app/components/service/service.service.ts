@@ -194,7 +194,7 @@ export class ServiceService {
       timeAuth: this.date,
       messages: [ {
         name: 'Admin',
-        message: 'Hello!If you like my program, write me something.'
+        message: 'Hello! If you like my program, write me something.'
       }]
     };
     // document.cookie = `${user.email}=${user.password}`;

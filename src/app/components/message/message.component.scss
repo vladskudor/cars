@@ -1,16 +1,16 @@
 @import "../global-style/global-style";
 
 :host-context(.message-block){
-  width: 20%;
+  width: 15%;
   z-index: 1;
   border: 2px solid $red;
   border-radius: $border-radius;
-  padding: 1%;
+  padding: 0.5%;
   background: $black;
   color: $white;
   position: fixed;
   right: 1%;
-  bottom: 20%;
+  top: calc(50vh - 20%);
   p{
     margin: 0;
     @media (max-width: 600px) {
@@ -28,6 +28,7 @@
     font-size: 16px;
     @media (max-width: 600px) {
       width: 90%;
+      height: 30px;
       font-size: 12px;
     }
   }
@@ -44,6 +45,7 @@
   }
 
   p{
+    margin: 3px;
     font-size: calc(8px + (14 - 8) * (100vw - 320px) / (1200 - 320));
     border: 2px solid $red;
     border-radius: $border-radius;
@@ -57,7 +59,16 @@
 
 .block-messages{
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   overflow: scroll;
+  overflow-x: hidden;
+}
+
+.title-block-message{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 

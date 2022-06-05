@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class MainComponent implements OnInit , DoCheck{
   public dataCarsName: any;
-  value: any;
+  public value: any;
   public logotype: any;
   public hint = false;
   public car1: any;
@@ -23,6 +23,7 @@ export class MainComponent implements OnInit , DoCheck{
 
   public records: any;
 
+  public scrollValue: boolean = false;
   constructor(public svc: ServiceService, public svcLogo: LogoServiceService, private http: HttpClient, private router: Router) {
   }
 
@@ -63,6 +64,14 @@ export class MainComponent implements OnInit , DoCheck{
   ngDoCheck(): void{
     if (this.records) {
       this.svc.overflowAuto();
+    }
+
+    if (window.scrollY) {
+      this.scrollValue = true;
+    }
+
+    if (window.scrollY === 0) {
+      this.scrollValue = false;
     }
   }
 

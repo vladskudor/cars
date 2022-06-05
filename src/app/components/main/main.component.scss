@@ -353,14 +353,14 @@ li{
     padding: 0;
   }
   &:hover{
-    outline: 2px solid $white;
+    outline: 2px solid $red;
   }
 }
 
 .close-message{
   cursor: pointer;
   position: fixed;
-  top: 120px;
+  top: 100px;
   right: 1%;
   color: $red;
   svg:hover{
