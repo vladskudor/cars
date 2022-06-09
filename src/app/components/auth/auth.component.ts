@@ -31,7 +31,6 @@ export class AuthComponent implements OnInit {
     this.loadUsers();
     this.addUser();
     this.svc.enterData();
-    // this.svc.user = null;
   }
 
   private loadUsers(): void{
@@ -72,7 +71,6 @@ export class AuthComponent implements OnInit {
     }
   }
   cancel(): void{
-    // если отмена при добавлении, удаляем последнюю запись
     if (this.isNewRecord) {
       this.users.pop();
       this.isNewRecord = false;

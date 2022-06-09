@@ -9,12 +9,11 @@ const mongoClient = new MongoClient("mongodb://localhost:27017/");
 
 let dbClient;
 
-// настройка CORS
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, PATCH, PUT, POST, DELETE, OPTIONS");
-  next();  // передаем обработку запроса дальше
+  next();
 });
 
 mongoClient.connect(function(err, client){
@@ -22,7 +21,7 @@ mongoClient.connect(function(err, client){
   dbClient = client;
   app.locals.collection = client.db("usersdb").collection("users");
   app.listen(3000, function(){
-    console.log("Сервер ожидает подключения...");
+    console.log("The server is waiting for a connection...");
   });
 });
 
@@ -37,7 +36,6 @@ app.get("/api/users", function(req, res){
 
 });
 app.get("/api/users/:id", function(req, res){
-
   const id = new objectId(req.params.id);
   const collection = req.app.locals.collection;
   collection.findOne({_id: id}, function(err, user){
@@ -93,7 +91,6 @@ app.put("/api/users", jsonParser, function(req, res){
     });
 });
 
-// прослушиваем прерывание работы программы (ctrl-c)
 process.on("SIGINT", () => {
   dbClient.close();
   process.exit();

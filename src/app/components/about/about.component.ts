@@ -9,18 +9,6 @@ import {ServiceService} from '../service/service.service';
 export class AboutComponent implements OnInit , DoCheck{
   public image: any;
   public number = 0;
-  // public imagesCars: any = [
-  //   'assets/images/1.png',
-  //   'assets/images/2.png',
-  //   'assets/images/3.png',
-  //   'assets/images/4.png',
-  //   'assets/images/5.png',
-  //   'assets/images/6.png',
-  //   'assets/images/7.png',
-  //   'assets/images/8.png',
-  //   'assets/images/9.png'
-  // ];
-  //
   public imagesCars: any = [
     {
       path: 'assets/images/1.png',

@@ -131,13 +131,15 @@ export class ServiceService {
   }
 
   public getUsers(): void {
-    // this.http.get('http://localhost:3000/api/users').subscribe( (data) => {
-    //   this.users = data;
-    //   console.log(this.users);
-    // });
     const users = JSON.parse(localStorage.getItem('users'));
     if (users) {
       this.users = users;
+    }
+    if (!users) {
+      this.http.get('http://localhost:3000/api/users').subscribe( (data) => {
+        this.users = data;
+        console.log(this.users);
+      });
     }
   }
 
