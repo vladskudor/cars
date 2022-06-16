@@ -29,7 +29,7 @@
       </div>
       <div>
         <div class="block-password">
-          <input [type]="passwordVisibility ? 'password' : 'text'" #password [formControl]="svc.formControlPassword" type="password" id="password" placeholder="Password" required [ngStyle]="{border: svc.formControlPassword.invalid && svc.password.length > 0 ? '2px solid red' : '2px solid #1a1a1a'}">
+          <input [type]="passwordVisibility ? 'text' : 'password'" #password [formControl]="svc.formControlPassword" type="password" id="password" placeholder="Password" required [ngStyle]="{border: svc.formControlPassword.invalid && svc.password.length > 0 ? '2px solid red' : '2px solid #1a1a1a'}">
           <button (click)="passwordVisibility = !passwordVisibility">(O)</button>
         </div>
         <div class="invalid-form" *ngIf="svc.formControlPassword.invalid && svc.password.length > 0">

@@ -128,6 +128,7 @@ a{
     &:hover {
       border: 2px solid $red;
       opacity: 1;
+      visibility: hidden;
     }
   }
 }
@@ -141,7 +142,6 @@ a{
       @media (max-width: 650px) {
         background: $black;
         z-index: 1;
-        //left: -110px;
         left: -45px;
         top: -25px;
       }

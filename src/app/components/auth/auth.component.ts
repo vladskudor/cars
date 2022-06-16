@@ -94,6 +94,7 @@ export class AuthComponent implements OnInit {
   public onFileUpdate(event, index): void{
     this.imgIcon = true;
     const files = event.target.files;
+
     if (files.length === 0) {
       return;
     }
