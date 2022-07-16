@@ -8,7 +8,6 @@ import {ServiceService} from '../../service/service.service';
 })
 export class LikeCarsComponent implements OnInit {
   @Input() public template?: TemplateRef<{ $implicit: any }>;
-
   public content: string;
   @Input() set setContentHeader(content: string) {
     this.content = content;

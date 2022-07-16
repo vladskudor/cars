@@ -15,7 +15,6 @@ export class GameComponent implements OnInit {
   public paramCarOne: any;
   public paramCarTwo: any;
 
-
   public carOne: any;
   public carTwo: any;
   public carImg1: any;
@@ -35,7 +34,10 @@ export class GameComponent implements OnInit {
   public objectCarOne: any;
   public objectCarTwo: any;
 
-  constructor(public svc: ServiceService , public logo: LogoServiceService , public eventManager: EventManager, private activate: ActivatedRoute) { }
+  constructor(public svc: ServiceService ,
+              public logo: LogoServiceService ,
+              public eventManager: EventManager,
+              private activate: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.subscription = this.activate.params.subscribe((param) => {
@@ -45,8 +47,6 @@ export class GameComponent implements OnInit {
 
     this.moveCarComputer();
     this.getImage();
-    console.log(this.objectCarOne);
-    console.log(this.objectCarTwo);
   }
 
   public moveCarComputer(): void{
@@ -145,17 +145,14 @@ export class GameComponent implements OnInit {
 
   public moveCars(car1 , car2 , road , red , green): void{
     setTimeout(() => {
-      // this.start = true;
       this.lightRed.style.background = 'grey';
       this.lightGreen.style.background = 'green';
     } , 3000);
-    // if (this.start) {
     this.testCarDrive1 = car1;
     this.testCarDrive2 = car2;
     this.road = road;
     this.lightRed = red;
     this.lightGreen = green;
-    // }
   }
 
   public restart(): void{

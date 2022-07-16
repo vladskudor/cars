@@ -8,7 +8,6 @@ export class ImageDirective {
 
   constructor(public element: ElementRef) {
     this.settings = JSON.parse(localStorage.getItem('settings'));
-    console.log(this.settings.backgroundImage);
     this.element.nativeElement.style.background = `url(${this.settings.backgroundImage})`;
     this.element.nativeElement.style.backgroundRepeat = 'no-repeat';
     this.element.nativeElement.style.backgroundAttachment = 'fixed';

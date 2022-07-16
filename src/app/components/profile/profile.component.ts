@@ -12,13 +12,11 @@ export class ProfileComponent implements OnInit , DoCheck , OnDestroy {
   public logotype: any;
   public allLikeCar: boolean = false;
   public currentImage: any;
-
-  // currency: number = 210;
   public headerContent: string = 'liked the cars';
 
-  constructor(public svc: ServiceService, public svcLogo: LogoServiceService, public router: Router) {
-
-  }
+  constructor(public svc: ServiceService,
+              public svcLogo: LogoServiceService,
+              public router: Router) {}
 
   ngOnInit(): void {
 
@@ -37,15 +35,6 @@ export class ProfileComponent implements OnInit , DoCheck , OnDestroy {
     this.allLikeCar = false;
     this.svc.overflowHidden();
   }
-
-  // public deleteCarLike(likeCar): void {
-  //   for (let delCar = 0; delCar < this.svc.user.likeCars.length; delCar++) {
-  //     if (likeCar.value === this.svc.user.likeCars[delCar].value) {
-  //       this.svc.user.likeCars.splice(delCar, 1);
-  //       localStorage.setItem('user', JSON.stringify(this.svc.user));
-  //     }
-  //   }
-  // }
 
   public carNameImg(): void {
     for (const i of this.svc.user.likeCars) {

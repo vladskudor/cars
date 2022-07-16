@@ -26,7 +26,6 @@ mongoClient.connect(function(err, client){
 });
 
 app.get("/api/users", function(req, res){
-
   const collection = req.app.locals.collection;
   collection.find({}).toArray(function(err, users){
 
@@ -34,15 +33,6 @@ app.get("/api/users", function(req, res){
     res.send(users)
   });
 
-});
-app.get("/api/users/:id", function(req, res){
-  const id = new objectId(req.params.id);
-  const collection = req.app.locals.collection;
-  collection.findOne({_id: id}, function(err, user){
-
-    if(err) return console.log(err);
-    res.send(user);
-  });
 });
 
 app.post("/api/users", jsonParser, function (req, res) {
@@ -58,18 +48,6 @@ app.post("/api/users", jsonParser, function (req, res) {
   collection.insertOne(user, function(err, result){
 
     if(err) return console.log(err);
-    res.send(user);
-  });
-});
-
-app.delete("/api/users/:id", function(req, res){
-
-  const id = new objectId(req.params.id);
-  const collection = req.app.locals.collection;
-  collection.findOneAndDelete({_id: id}, function(err, result){
-
-    if(err) return console.log(err);
-    let user = result.value;
     res.send(user);
   });
 });

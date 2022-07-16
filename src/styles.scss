@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   background: url('bacground-main.jpg');
-  //background: url('bacground-main.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: center;
@@ -9,7 +8,6 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Arial Black";
-  //overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -22,7 +20,6 @@ body{
 }
 
 ::-webkit-scrollbar-thumb{
-  //background: linear-gradient(rgb(134, 239, 172) , rgb(59 , 130 , 246) , rgb(147 , 51 , 234));
   background: linear-gradient(grey , black , black , grey);
 }
 
@@ -50,26 +47,7 @@ body{
   @media (max-height: 650px) {
     background-position-y: center;
   }
-  //background-position: center;
 }
-
-//p,h1,h2,li,input{
-//  animation-name: text-change;
-//  animation-iteration-count: infinite;
-//  animation-delay: .5s;
-//  animation-direction: alternate-reverse;
-//  animation-timing-function: ease-in-out;
-//  animation-duration: 2s;
-//}
-//
-//@keyframes  text-change{
-//  from{
-//    color: white;
-//  }
-//  to{
-//    color: red;
-//  }
-//}
 
 footer {
   border-top: 2px solid red;

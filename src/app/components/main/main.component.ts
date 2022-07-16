@@ -14,18 +14,22 @@ export class MainComponent implements OnInit , DoCheck{
   public dataCarsName: any;
   public value: any;
   public logotype: any;
-  public hint = false;
+
   public car1: any;
   public car2: any;
+  public records: any;
 
   public searchCarName: any;
   public searchCarModel: any;
 
-  public records: any;
-
+  public hint = false;
   public scrollValue: boolean = false;
-  constructor(public svc: ServiceService, public svcLogo: LogoServiceService, private http: HttpClient, private router: Router) {
-  }
+
+  constructor(public svc: ServiceService,
+              public svcLogo: LogoServiceService,
+              private http: HttpClient,
+              private router: Router,
+              ) {}
 
   ngOnInit(): void {
     const user = localStorage.getItem('user');
@@ -77,7 +81,6 @@ export class MainComponent implements OnInit , DoCheck{
 
   enter(value): void{
     this.value = value;
-    // this.value.style.textTransform = 'uppercase';
   }
 
   scrollUp(): void{

@@ -3,49 +3,53 @@ import {FormControl, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {NavigationEnd, Router , Scroll , ActivatedRoute} from '@angular/router';
 import {LogoServiceService} from './logo-service.service';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ServiceService {
-  public modal: boolean = false;
-  public message: boolean = false;
-  public logotypes: any;
-  public logo: any;
-  public imgIcon: any = false;
-  public img: any;
-  public error: any = false;
-  public users: any = [];
-  public ip: any;
   public formControlLogin: FormControl;
   public formControlPassword: FormControl;
   public formControlMotor: FormControl;
   public formControlAccelereation: FormControl;
   public formControlHorsePower: FormControl;
+
   public login: string;
   public password: string;
   public user: any;
-  public themeGrey: boolean = false;
+  public users: any = [];
+  public ip: any;
+
+  public userExist: any;
+  public modal = false;
+  public message = false;
+  public themeGrey = false;
+  public logotypes: any;
+  public logo: any;
+  public img: SafeResourceUrl;
+  public error: any = false;
   public loading = false;
+  public showCars = false;
+
   public cars: any = [];
-  public model: any = [];
-  public mark: any;
   public curCar: any;
+  public mark: any;
+  public carCurrent: any;
+  public model: any = [];
   public currentModel: any;
   public gear: any;
   public currentGear: any;
-  public carCurrent: any;
-  public showCars = false;
-  public objectCar: any;
   public motors: any;
   public motor: any;
   public acceleration: any;
   public horsePower: any;
+  public objectCar: any;
+
   public car1: any;
   public car2: any;
   public selectedCar: any;
-  public userExist: any;
   public carTest1: any;
   public carTest2: any;
 
@@ -55,9 +59,21 @@ export class ServiceService {
     private router: Router,
     private actRoute: ActivatedRoute,
     private http: HttpClient,
-    public svcLogo: LogoServiceService
+    public svcLogo: LogoServiceService,
+    public sanitizer: DomSanitizer
   ) {
 
+  }
+
+  public enterData(): void {
+    this.formControlLogin = new FormControl('', [Validators.minLength(8) , Validators.email]);
+    this.formControlLogin.valueChanges.subscribe((changes) => {
+      this.login = changes;
+    });
+    this.formControlPassword = new FormControl('', [Validators.minLength(8), Validators.maxLength(16)]);
+    this.formControlPassword.valueChanges.subscribe((changes) => {
+      this.password = changes;
+    });
   }
 
   public enterDataMotor(): void {
@@ -120,6 +136,18 @@ export class ServiceService {
     });
   }
 
+  public getUsers(): void {
+    const users = JSON.parse(localStorage.getItem('users'));
+    if (users) {
+      this.users = users;
+    }
+    if (!users) {
+      this.http.get('http://localhost:3000/api/users').subscribe( (data) => {
+        this.users = data;
+      });
+    }
+  }
+
   public getUser(): void {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
@@ -130,39 +158,20 @@ export class ServiceService {
     }
   }
 
-  public getUsers(): void {
-    const users = JSON.parse(localStorage.getItem('users'));
-    if (users) {
-      this.users = users;
-    }
-    if (!users) {
-      this.http.get('http://localhost:3000/api/users').subscribe( (data) => {
-        this.users = data;
-        console.log(this.users);
-      });
-    }
-  }
-
-  public enterData(): void {
-    this.formControlLogin = new FormControl('', [Validators.minLength(8) , Validators.email]);
-    this.formControlLogin.valueChanges.subscribe((changes) => {
-      this.login = changes;
-    });
-    this.formControlPassword = new FormControl('', [Validators.minLength(8), Validators.maxLength(16)]);
-    this.formControlPassword.valueChanges.subscribe((changes) => {
-      this.password = changes;
+  public getIp(): void{
+    this.http.get(`https://api.ip2loc.com/yPw3PKm7dXHwf8j2J6H5JJmGzVP1csPz`).subscribe((dataIp) => {
+      this.ip = dataIp;
     });
   }
 
   public authSent(): void {
-    this.users.some((user) => {
-      if (this.login === user.email) {
+    this.users.some((someUser) => {
+      if (this.login === someUser.email) {
         this.userExist = true;
         alert('User already exist');
-        console.log('User already exist');
         return;
       }
-      if (this.login === user.email){
+      if (this.login === someUser.email){
         this.userExist = false;
       }
     });
@@ -178,7 +187,6 @@ export class ServiceService {
     }
 
     if (this.formControlLogin.invalid || this.formControlPassword.invalid) {
-      console.log('Form invalid');
       alert('Form invalid');
       return;
     }
@@ -265,7 +273,6 @@ export class ServiceService {
       }
     });
     this.http.get(`https://api.auto.ria.com/categories/1/marks/${this.curCar}/models`).subscribe((model: any = []) => {
-      console.log(model);
       this.model = model;
     });
   }
@@ -302,9 +309,14 @@ export class ServiceService {
     }
 
     this.logotypes = this.svcLogo.logotypes;
-    for (let i = 0; i < this.logotypes.length; i++) {
-      if (this.carCurrent.name === this.logotypes[i].name){
-        this.logo = this.logotypes[i].image.source;
+    // for (let i = 0; i < this.logotypes.length; i++) {
+    //   if (this.carCurrent.name === this.logotypes[i].name){
+    //     this.logo = this.logotypes[i].image.source;
+    //   }
+    // }
+    for (const logo of this.logotypes) {
+      if (this.carCurrent.name === logo.name) {
+        this.logo = logo.image.source;
       }
     }
 
@@ -332,7 +344,6 @@ export class ServiceService {
       this.car2 = car2;
       this.car2.push(completeCar);
       localStorage.setItem('car2', JSON.stringify(car2));
-      console.log(completeCar);
       this.router.navigate(['/compare-cars']);
     }
   }
@@ -360,7 +371,6 @@ export class ServiceService {
         localStorage.setItem('users', JSON.stringify(this.users));
       }
     });
-    console.log(this.user.likeCars);
     this.getGearBoxes();
   }
 
@@ -379,41 +389,16 @@ export class ServiceService {
     this.router.navigate([`${path}`, this.user.email, this.user.password]);
   }
 
-  public getIp(): void{
-    this.http.get(`https://api.ip2loc.com/yPw3PKm7dXHwf8j2J6H5JJmGzVP1csPz`).subscribe((dataIp) => {
-      console.log(dataIp);
-      this.ip = dataIp;
-    });
-  }
-
-  public products = [
-    {
-      id: 1,
-      imgUrl: "",
-      imgBase64Data: ""
-    },
-  ];
-
-  public onFileUpdate(event, index): void{
-    this.imgIcon = true;
-    const files = event.target.files;
-    if (files.length === 0) return;
-
-    const reader = new FileReader();
-
-    reader.readAsDataURL(files[0]);
-    reader.onload = event => {
-      this.products[index].imgBase64Data = reader.result as string;
-      this.img = this.products;
-      console.log(this.img);
-    };
-  }
-
   public playGame(): void{
     const carTest1 = localStorage.getItem('car1');
     const carTest2 = localStorage.getItem('car2');
     localStorage.setItem('carTest1' , carTest1);
     localStorage.setItem('carTest2' , carTest2);
     this.router.navigate(['/game' , `${JSON.stringify(this.car1)}` , `${JSON.stringify(this.car2)}`]);
+  }
+
+  public handleFileInput(file: FileList): void{
+    const urlToBlob = window.URL.createObjectURL(file.item(0));
+    this.img = this.sanitizer.bypassSecurityTrustUrl(urlToBlob);
   }
 }

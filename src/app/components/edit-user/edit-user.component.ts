@@ -13,7 +13,8 @@ export class EditUserComponent implements OnInit {
     {colorBackground: '#cdcdcd' , colorText: 'black' , backgroundImage: 'src/assets/images/renaultblack1.jpg'}
   ];
   public theme: any;
-  constructor(public svc: ServiceService , private router: Router) { }
+  constructor(public svc: ServiceService ,
+              private router: Router) { }
 
   ngOnInit(): void {
 

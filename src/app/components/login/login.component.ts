@@ -12,7 +12,9 @@ export class LoginComponent implements OnInit {
   passwordVisibility: boolean = false;
 
   user: any;
-  constructor(public svc: ServiceService , private router: Router , private http: HttpClient) { }
+  constructor(public svc: ServiceService ,
+              public router: Router ,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     this.svc.enterData();
@@ -20,6 +22,6 @@ export class LoginComponent implements OnInit {
     if (this.svc.user){
       this.router.navigate(['/main' , this.svc.user.email , this.svc.user.password]);
     }
-    this.http.get('https://api.github.com/search/users').subscribe(data => console.log(data));
+    // this.http.get('https://api.github.com/search/users').subscribe(data => console.log(data));
   }
 }

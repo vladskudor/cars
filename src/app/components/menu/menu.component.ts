@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit , OnDestroy{
   public val: any = 0;
   public title = '';
   public valueContent: any;
-  constructor(public svc: ServiceService, private router: Router) {
+  constructor(public svc: ServiceService, public router: Router) {
   }
 
   ngOnInit(): void {

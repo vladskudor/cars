@@ -15,7 +15,7 @@ export class GuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const user = localStorage.getItem('user');
     const users = localStorage.getItem('users');
-    let body = document.body;
+    const body = document.body;
     if (!user && !users) {
       this.router.navigate(['/auth']);
     }

@@ -23,8 +23,9 @@ export class CompareCarsComponent implements OnInit, DoCheck, OnDestroy {
   public activeImg1: boolean = false;
   public activeImg2: boolean = false;
 
-  constructor(public svc: ServiceService, public element: ElementRef, public renderer: Renderer2) {
-  }
+  constructor(public svc: ServiceService,
+              public element: ElementRef,
+              public renderer: Renderer2) {}
 
   ngOnInit(): void {
     const car1 = localStorage.getItem('car1');
@@ -97,5 +98,4 @@ export class CompareCarsComponent implements OnInit, DoCheck, OnDestroy {
     localStorage.removeItem('car1');
     localStorage.removeItem('car2');
   }
-
 }

@@ -319,11 +319,21 @@ li{
     .winners{
       padding: 2% 0;
     }
+    img{
+      width: 70%;
+      height: 100%;
+      max-height: 200px;
+    }
   }
   .block-losers{
     text-align: center;
     .losers{
       padding: 2% 0;
+      img{
+        width: 70%;
+        height: 100%;
+        max-height: 200px;
+      }
     }
   }
 }

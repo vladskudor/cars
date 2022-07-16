@@ -35,6 +35,6 @@ export class Interseptor implements HttpInterceptor{
   }
 
   private static modifyBody(body: any): void{
-    console.log(body);
+    // console.log(body);
   }
 }

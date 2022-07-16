@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ServiceService} from '../service/service.service';
 import {User} from '../user';
 import {UserService} from '../user.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -13,17 +14,18 @@ import {UserService} from '../user.service';
   providers: [UserService]
 })
 export class AuthComponent implements OnInit {
-  // public img any;
   @ViewChild('readOnlyTemplate', {static: false}) readOnlyTemplate: TemplateRef<any>|undefined;
   @ViewChild('editTemplate', {static: false}) editTemplate: TemplateRef<any>|undefined;
   editedUser: User|null = null;
   users: Array<User>;
   isNewRecord: boolean;
-  imgIcon: boolean = false;
   img: any;
   passwordVisibility: boolean = false;
 
-  constructor(public svc: ServiceService , public router: Router, private serv: UserService) {
+  constructor(public svc: ServiceService ,
+              public router: Router,
+              private serv: UserService,
+              public sanitize: DomSanitizer) {
     this.users = new Array<User>();
   }
 
@@ -40,14 +42,11 @@ export class AuthComponent implements OnInit {
   }
 
   addUser(): void{
-    this.editedUser = new User('', '', null , null);
+    this.editedUser = new User('', '', null , '');
     this.users.push(this.editedUser);
     this.isNewRecord = true;
   }
 
-  editUser(user: User): void{
-    this.editedUser = new User(user._id, user.email, user.password , user.img);
-  }
   // tslint:disable-next-line:typedef
   loadTemplate(user: User) {
     if (this.editedUser && this.editedUser._id === user._id) {
@@ -57,6 +56,12 @@ export class AuthComponent implements OnInit {
     }
   }
   saveUser(): void{
+    // file: FileList - argument
+    // const urlToBlob = window.URL.createObjectURL(file);
+    // this.img = this.sanitize.bypassSecurityTrustUrl(urlToBlob);
+    // this.editedUser.img = this.img;
+    localStorage.setItem('user', JSON.stringify(this.editedUser));
+    this.router.navigate(['/main', this.editedUser.email, this.editedUser.password]);
     if (this.isNewRecord) {
       this.serv.createUser(this.editedUser as User).subscribe(data => {
         this.loadUsers();
@@ -69,42 +74,5 @@ export class AuthComponent implements OnInit {
       });
       this.editedUser = null;
     }
-  }
-  cancel(): void{
-    if (this.isNewRecord) {
-      this.users.pop();
-      this.isNewRecord = false;
-    }
-    this.editedUser = null;
-  }
-  deleteUser(user: User): void{
-    this.serv.deleteUser(user._id).subscribe(data => {
-      this.loadUsers();
-    });
-  }
-
-  public products = [
-    {
-      id: 1,
-      imgUrl: '',
-      imgBase64Data: ''
-    },
-  ];
-
-  public onFileUpdate(event, index): void{
-    this.imgIcon = true;
-    const files = event.target.files;
-
-    if (files.length === 0) {
-      return;
-    }
-    const reader = new FileReader();
-
-    reader.readAsDataURL(files[0]);
-    reader.onload = (event) => {
-      this.products[index].imgBase64Data = reader.result as string;
-      this.img = this.products;
-      console.log(this.img);
-    };
   }
 }
