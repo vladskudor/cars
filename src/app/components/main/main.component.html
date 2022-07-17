@@ -115,7 +115,7 @@
               <img *ngIf="rec.winner[0].logo" src="{{rec.winner[0].logo}}" alt="">
               <img *ngIf="!rec.winner[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.winner[0].name}} {{rec.winner[0].model}}</p>
+            <p>{{rec.winner[0].name}} - {{rec.winner[0].model}}</p>
           </div>
         </div>
 
@@ -132,7 +132,7 @@
               <img *ngIf="rec.loser[0].logo" src="{{rec.loser[0].logo}}" alt="">
               <img *ngIf="!rec.loser[0].logo" src="./assets/images/car.png" alt="">
             </div>
-            <p>{{rec.loser[0].name}} {{rec.loser[0].model}}</p>
+            <p>{{rec.loser[0].name}} - {{rec.loser[0].model}}</p>
           </div>
         </div>
       </div>
