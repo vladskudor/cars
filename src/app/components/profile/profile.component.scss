@@ -10,15 +10,25 @@
 }
 
 .content{
-  width: 350px;
+  width: 40%;
   margin: 0 auto;
   padding: 0 10%;
+  .profile-info{
+    border: 2px solid $red;
+    margin: 0;
+    padding: 0;
+    border-radius: $border-radius;
+  }
   .block-info{
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid $red;
+    padding: 1%;
+    background: $black;
+    opacity: .9;
   }
-  @media (max-width: 500px) {
-    width: auto;
+  @media (max-width: 800px) {
+    width: 100%;
     padding: 0 5%;
   }
 }
@@ -71,8 +81,13 @@ li{
 }
 
 b{
+  font-size: calc(14px + (20 - 14) * (100vw - 320px) / (1200 - 320));
   text-transform: uppercase;
   color: $red;
+}
+
+span{
+  font-size: calc(14px + (20 - 14) * (100vw - 320px) / (1200 - 320));
 }
 
 p{

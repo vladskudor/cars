@@ -54,10 +54,11 @@ p{
   img{
     width: 50%;
     @media (max-width: 600px) {
-      width: 70%;
+      width: 100%;
     }
   }
   .block-slider-image{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,8 +66,17 @@ p{
       padding: 1%;
       @media (max-width: 600px) {
         padding: 3% 2%;
+        position: absolute;
       }
     }
   }
 }
 
+
+#button-left{
+  left: 0;
+}
+
+#button-right{
+  right: 0;
+}

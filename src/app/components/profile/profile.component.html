@@ -5,19 +5,22 @@
     <div>
       <h1>profile</h1>
     </div>
-    <div class="block-info">
-      <b>id</b> <span>_{{svc.user.id}}</span>
-    </div>
-    <div class="block-info">
-      <b>login</b> <span>_{{svc.user.email}}</span>
-    </div>
-    <div class="block-info">
-      <b>password</b> <span>_{{svc.user.password}}</span>
+    <div class="profile-info">
+      <div class="block-info">
+        <b>id</b> <span>_{{svc.user.id}}</span>
+      </div>
+      <div class="block-info">
+        <b>login</b> <span>_{{svc.user.email}}</span>
+      </div>
+      <div class="block-info">
+        <b>password</b> <span>_{{svc.user.password}}</span>
+      </div>
+
+      <div class="block-info" style="border-bottom: 0">
+        <b>Date:</b>  <span>{{svc.user.timeAuth | date: 'dd/MM/yyyy' | uppercase}}</span>
+      </div>
     </div>
 
-    <div class="block-info">
-      <b>Date:</b>  <span>{{svc.user.timeAuth | date: 'dd/MM/yyyy' | uppercase}}</span>
-    </div>
 
 <!--    <div>-->
 <!--      <b>salary</b> {{currency | currency}}-->

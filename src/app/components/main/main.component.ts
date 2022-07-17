@@ -36,7 +36,6 @@ export class MainComponent implements OnInit , DoCheck{
     const users = localStorage.getItem('users');
     this.records = JSON.parse(localStorage.getItem('records'));
 
-    console.log(this.records);
     if (!user && !users) {
       document.location.reload();
     }
