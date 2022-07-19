@@ -22,6 +22,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { CurrentCarComponent } from './components/current-car/current-car.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { MeganeComponent } from './components/megane/megane.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MenuComponent } from './components/menu/menu.component';
     LikeCarsComponent,
     SearchPipe,
     MessageComponent,
-    AboutComponent
+    AboutComponent,
+    MeganeComponent
   ],
     imports: [
         Router,

@@ -1,6 +1,11 @@
 <app-menu>
   <div class="block-menu-button" *ngIf="!svc.user">
     <div>
+      <button id="button-log-auth" (click)="router.navigate(['/megane'])">
+        about
+      </button>
+    </div>
+    <div>
       <button id="button-log-auth" (click)="router.navigate(['/auth'])">
         signup
       </button>

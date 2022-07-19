@@ -28,7 +28,8 @@
         <div>
           <a (click)="svc.navigateTo('/main')">main</a>
           <a (click)="router.navigate(['/profile'])">profile</a>
-          <a (click)="router.navigate(['edit' , svc.user.email, svc.user.password])">edit</a>
+          <a (click)="router.navigate(['edit'])">edit</a>
+          <a (click)="router.navigate(['/megane'])">about</a>
           <a (click)="svc.removeUser()">exit</a>
         </div>
       </nav>
@@ -49,7 +50,8 @@
             <ul>
               <li (click)="svc.navigateTo('/main')">main</li>
               <li (click)="router.navigate(['/profile'])" routerLinkActive="active">profile</li>
-              <li (click)="router.navigate(['edit' , svc.user.email, svc.user.password])" routerLinkActive="active">edit</li>
+              <li (click)="router.navigate(['edit'])" routerLinkActive="active">edit</li>
+              <li (click)="router.navigate(['/megane'])">about</li>
               <li (click)="svc.removeUser()">exit</li>
             </ul>
           </div>

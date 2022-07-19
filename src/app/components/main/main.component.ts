@@ -25,6 +25,9 @@ export class MainComponent implements OnInit , DoCheck{
   public hint = false;
   public scrollValue: boolean = false;
 
+
+  public winners: any;
+  public losers: any;
   constructor(public svc: ServiceService,
               public svcLogo: LogoServiceService,
               private http: HttpClient,
@@ -35,7 +38,6 @@ export class MainComponent implements OnInit , DoCheck{
     const user = localStorage.getItem('user');
     const users = localStorage.getItem('users');
     this.records = JSON.parse(localStorage.getItem('records'));
-
     if (!user && !users) {
       document.location.reload();
     }
@@ -86,3 +88,4 @@ export class MainComponent implements OnInit , DoCheck{
     window.scrollTo(0 , 0);
   }
 }
+

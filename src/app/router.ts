@@ -10,17 +10,20 @@ import {EditUserComponent} from './components/edit-user/edit-user.component';
 import {CompareCarsComponent} from './components/compare-cars/compare-cars.component';
 import {GameComponent} from './components/game/game.component';
 import {AboutComponent} from './components/about/about.component';
+import {MeganeComponent} from './components/megane/megane.component';
+
 
 const appRoutes: Routes = [
-  {path: '' , component: LoginComponent},
+  {path: '' , component: MeganeComponent},
   {path: 'auth' , component: AuthComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'about/:login/:password' , component: AboutComponent , canActivate: [GuardGuard]},
   {path: 'profile' , component: ProfileComponent , canActivate: [GuardGuard]},
   {path: 'game/:carTest1/:carTest2' , component: GameComponent , canActivate: [GuardGuard]},
-  {path: 'edit/:login/:password' , component: EditUserComponent , canActivate: [GuardGuard]},
+  {path: 'edit' , component: EditUserComponent , canActivate: [GuardGuard]},
   {path: 'current-car' , component: CurrentCarComponent , canActivate: [GuardGuard]},
   {path: 'compare-cars' , component: CompareCarsComponent , canActivate: [GuardGuard]},
+  {path: 'megane' , component: MeganeComponent},
   {path: 'main/:login/:password' , component: MainComponent , canActivate: [GuardGuard]}
 ];
 @NgModule({
