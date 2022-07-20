@@ -46,12 +46,12 @@
     border-right: 2px solid $red;
   }
   p{
+    background: $black;
+    color: $white;
     opacity: .8;
     margin: 0;
     font-size: calc(10px + (14 - 10) * (100vw - 320px) / (1200 - 320));
     @media (max-width: 800px) {
-      background: $black;
-      color: $white;
       border-radius: $border-radius;
       text-align: center;
     }
@@ -62,7 +62,6 @@
   }
   p:last-child{
     border-radius: 0 0 10px 10px;
-    margin-top: 1%;
   }
   @media (max-width: 800px) {
     top: 50%;
@@ -78,9 +77,16 @@
   display: grid;
   align-items: center;
   grid-template-columns: 2fr 1fr;
-  padding: 1%;
+  padding: 5% 1%;
   color: $red;
   background: $black;
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+    letter-spacing: 2px;
+    font-size: calc(12px + (20 - 12) * (100vw - 320px) / (1200 - 320));
+  }
   p{
     padding: 0 1% 0 0;
     font-size: calc(8px + (16 - 8) * (100vw - 320px) / (1200 - 320));
@@ -123,4 +129,30 @@
     width: 100%;
     max-height: 30vh;
   }
+}
+
+.block-description{
+  padding: 5% 0;
+}
+
+.block-description-inform{
+  display: flex;
+  justify-content: space-around;
+  color: $red;
+  img{
+    border-radius: $border-radius;
+    width: 100%;
+    max-height: 30vh;
+  }
+  p{
+    text-align: center;
+    width: 100%;
+    font-size: calc(8px + (16 - 8) * (100vw - 320px) / (1200 - 320));
+  }
+}
+
+.block-inform{
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px $red;
+  max-width: 20%;
 }
